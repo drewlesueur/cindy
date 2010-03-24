@@ -1,0 +1,24 @@
+class com.coolstufflist.OtherText
+{
+	public var tf;
+	public var t;
+	public function make(text,x,y,w,h,font,size)
+	{
+		this.t = createTextField("__othertext__" + _root.getNextHightestDepth(),x,y,w,h);
+		this.tf = new TextFormat(font,size);
+		this.t.setTextFormat(this.tf);
+	
+	}
+	
+	public funtion text(what)
+	{
+		this.t.text = what;
+		this.t.setTextFormat(this.tf)
+	
+	}
+	
+	
+
+
+
+}
