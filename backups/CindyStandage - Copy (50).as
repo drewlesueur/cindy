@@ -1396,55 +1396,27 @@ var can_click_next = false;
 	]
 	
 	
-	
-	var titles_2 = [
-        "It's Off",
-        "Save Yourself",
-        "Loved By You",
-        "Can't Just Kiss You",
-        "The Party",
-       "Redneck With Too Much Money",
-       "People Like Me",
-       "Brand New Key",
-       "Red Dress",
-       "The Baptism of Jesse Taylor",
-       "Jimmy, Don't Let Our Rose Die",
-       "Don't Touch Me",
-       "Everytime I Roll The Dice"
-	]
-	
-	
 	var music = _root.createEmptyMovieClip("music",_root.getNextHighestDepth())
 var music_lines = new Array(songs.length);	
-var music_lines_2 = new Array(titles_2.length);
+	
 	var demo_sound = new Sound(_root.sound_demo);
 	
 var go_music = function()
 {
 
 var last_clicked_index = -1;
+			/*
+			music.createEmptyMovieClip("grid", 999)
+			music.grid.beginFill(0xFF0000, 100);
+			music.grid.moveTo(0, 0);
+			music.grid.lineTo(500, 0);
+			music.grid.lineTo(500, 300);
+			music.grid.lineTo(0, 300);
+			music.grid.endFill();*/
 			
-			
-			var music_pic = music.createEmptyMovieClip("music_pic",music.getNextHighestDepth())
+			var music_pic = music.createEmptyMovieClip("music_pic",_root.getNextHighestDepth())
 			music_pic.loadMovie("images/62_.jpg");
       music_pic._Y = 190;
-      
-		
-		//I am useing _root.createEmpty.. because doing music was overwriting it.
-		//who knows!
-		//var music_pic_2 =  _root.createEmptyMovieClip("music_pic_2",_root.getNextHighestDepth())
-		//music_pic_2.loadMovie("images/vollii-small.png");
-		
-		//music_pic_2._Y = 190;
-		//music_pic_2._X = 1050;
-		
-		
-		var music_pic_2 =  music.createEmptyMovieClip("music_pic_2",music.getNextHighestDepth())
-		music_pic_2.loadMovie("images/vollii-small.png");
-		
-		music_pic_2._Y = 205;
-		music_pic_2._X = 325;
-		
 		
 		music.createEmptyMovieClip("grid", 999)
 			music.grid.beginFill(0xFF0000, 0);
@@ -1459,67 +1431,27 @@ var last_clicked_index = -1;
         getURL("http://cdbaby.com/cd/cindystandage");
 			}
 		
-		
-		
-		//click area for second cd
-		music.createEmptyMovieClip("go", 1000)
-			music.go.beginFill(0xFF0000, 0);
-			music.go.moveTo(325 + 0, 0 +190);
-			music.go.lineTo(325 + 190, 0 + 190);
-			music.go.lineTo(325 + 190, 196 + 190);
-			music.go.lineTo(325 + 0, 196 + 190);
-			music.go.endFill();
-			
-			music.go.onPress = function()
-			{
-        getURL("http://cindystandage.ultraentertainment.com/estore/storeproducts.aspx");
-			}
-		
-		
-		
-		music._x = 725
+		music._x = 900
 		music._y = 0
 		
 		
-	var music_fmt = new TextFormat("eaves",23); //change to eaves
-      music_fmt.color=0xffffff;
-      music_fmt.align = "left";
-      
-      var music_fmt_over = new TextFormat("eaves", 23);
-      music_fmt_over.color=0x2244CC//0x2f4052;
-      music_fmt_over.align = "left";	
-      
-       var ds_nav = new DropShadowFilter();
-		ds_nav.blurX= 8;
-		ds_nav.blurY= 8;
-		ds_nav.distance = 3;
-      
-      
-	for (var i = 0; i < titles_2.length; i++) {
-        music_lines_2[i] = music.createEmptyMovieClip("song_2_" + i, music.getNextHighestDepth());
-        music_lines_2[i].createTextField("music_txt",music_lines_2[i].getNextHighestDepth(),325,i * 24 + 400,280,100);
-        
-      music_lines_2[i].music_txt.wordWrap = true
-      
-      music_lines_2[i].music_txt.text =  titles_2[i]
-        
-      music_lines_2[i].music_txt.setTextFormat(music_fmt);
-      music_lines_2[i].music_txt.embedFonts = true;  //uncomment this html try
-      	 
-      	 
-      	
-      music_lines_2[i].filters = [ds_nav,ds_nav]
-	
-	}
-	
+		
 			
     for (var i = 0; i < songs.length; i++)
     {
       music_lines[i] = music.createEmptyMovieClip("song_" + i, music.getNextHighestDepth());
       
       music_lines[i].createTextField("music_txt",music_lines[i].getNextHighestDepth(),0,i * 24 + 400,280,100);
-     
-     
+      
+      
+      var music_fmt = new TextFormat("eaves",23); //change to eaves
+      music_fmt.color=0xffffff;
+      music_fmt.align = "left";
+      
+      var music_fmt_over = new TextFormat("eaves", 23);
+      music_fmt_over.color=0x2244CC//0x2f4052;
+      music_fmt_over.align = "left";
+      
       
         
       music_lines[i].music_txt.wordWrap = true
@@ -1531,6 +1463,10 @@ var last_clicked_index = -1;
       music_lines[i].music_txt.embedFonts = true;  //uncomment this html try
       	 
       	 
+      	 var ds_nav = new DropShadowFilter();
+		ds_nav.blurX= 8;
+		ds_nav.blurY= 8;
+		ds_nav.distance = 3;
       
       music_lines[i].filters = [ds_nav,ds_nav]
       
@@ -2270,140 +2206,6 @@ var myRoundRectangle:RoundRectangle = new RoundRectangle(purchase,10,10,150,35);
 		header_mc.filters = [ds];
 
 		*/
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-/*                                        
- _______            ____        _   _                  
-|__   __|          |  _ \      | | | |                 
-   | | ___  _ __   | |_) |_   _| |_| |_ ___  _ __  ___ 
-   | |/ _ \| '_ \  |  _ <| | | | __| __/ _ \| '_ \/ __|
-   | | (_) | |_) | | |_) | |_| | |_| || (_) | | | \__ \
-   |_|\___/| .__/  |____/ \__,_|\__|\__\___/|_| |_|___/
-           | |                                         
-           |_|                           
-
-*/
-//top button
-
-var make_top_button = function(url, text, putx, puty, width, height) {
-     purchase = _root.createEmptyMovieClip("purchase",_root.getNextHighestDepth());
-    //purchase.loadMovie("purchase.png");
-
-
- purchase_matrix = new Matrix()
-	purchase_matrix.createGradientBox(150, 35, Math.PI/2, 0, 0)
-
-		
-
- myRoundRectangle = new RoundRectangle(purchase,putx,puty,width,height);
-     
-     myRoundRectangle.setRegistrationPoint({x:0, y:0})
-			myRoundRectangle.setCornerRadius(3);
-			
-			myRoundRectangle.gradientStyle("linear",[0xffffff,0x8698ad],[100,100],[0,0xFF], purchase_matrix);
-			
-			myRoundRectangle.draw();	
-		
-	
-		 purchase_txt = purchase.createTextField("purchase_txt",purchase.getNextHighestDepth(),6,4,width,height);
-		
-		 purchase_fmt = new TextFormat("eaves", 27);
-		purchase_fmt.color=0x000000;
-		purchase_fmt.align = "left";
-		
-		purchase_txt.text = text;
-			
-		purchase_txt.setTextFormat(purchase_fmt);
-	
-		
-		//only when you are using font with swfmill
-		purchase_txt.embedFonts = true;
-		
-		
-		purchase.useHandCursor = true;
-			
-			purchase.mouseChildren = false;
-			
-			
-			purchase.onPress = function(){
-                getURL(url)//firefox doesn't like blank //,"_blank");
-         
-            }
-		
-		purchase.filters = [ds_]		
-		
-		 theglow = new GlowFilter();
-		theglow.color = 0xffffff;
-		theglow.blurX = 10;
-		theglow.blurY = 10;
-		theglow.alpha = .4;
-		
-		purchase.onRollOver = function(){
-				this.filters = [theglow]
-			};
-			purchase.onRollOut = function(){
-					this.filters = [ds_]				
-			}
-		
-}		
-		
-		
-make_top_button("http://cindystandage.ultraentertainment.com/estore/storeproducts.aspx", "Buy CD", 170, 10, 85, 35);		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		
 		

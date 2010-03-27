@@ -1,9 +1,5 @@
-//compile like
-//s cindystandage
-
 import flash.filters.*
 import flash.geom.Matrix;
-import flash.external.ExternalInterface;
 
 
 import de.alex_uhlmann.animationpackage.*;
@@ -52,9 +48,9 @@ class CindyStandage {
   |___/                           
 
 */
-var so = SharedObject.getLocal("cindy");
 
-
+_root._xscale = (1000/1250) * 100;
+_root._yscale = _root._xscale;
 
 //need these for animation
 APCore.initialize();
@@ -87,101 +83,32 @@ APCore.addListener(myListener);
 		
 
 var bg_music = ["music/1.flv","music/2.flv","music/3.flv","music/4.flv"];
-
-var bg_music_index;
-
-
-
-	var get_saved_music_index = function()
-    {
-      //return so.data.bg_music_index  
-      return ExternalInterface.call("get_music_index")
-    }
-    
-    var save_music_index = function()
-    {
-       //so.data.bg_music_index =  bg_music_index
-       ExternalInterface.call("save_music_index",bg_music_index);
-    }
-    
-    
-
-//var bg_music_index = so.data.bg_music_index || 0;
-//so.data.bg_music_index =  bg_music_index
-
-
-
-
-
-
-ExternalInterface.addCallback("saveMusic",null,function(){
-
-  //var the_music_index = bg_music_index + 1;
-  //if (the_music_index >= bg_music.length)
-  //{
-  //  the_music_index = 4 - bg_music_index;
-  //}
-  //so.data.bg_music_index = 3
-  
-});
+var bg_music_index = 0;
 
 
 ns.setBufferTime(15);
-    
-  //ns.play(bg_music[bg_music_index])     //, 300 * 30 || so.data.song_pos || 0);
-  //look for the default state
+  //ns.play(bg_music[bg_music_index]); //old way... lets see other options //for now
   
-  
-  
-  //ExternalInterface.call("alert",so.data.song_pos);
-  //ns.seek(so.data.song_pos);
-  
+  ns.play(bg_music[bg_music_index]);
   //videoSound.setVolume(0);
-  
-  ExternalInterface.addCallback("volumeUp",null,function(){videoSound.setVolume(100);});
-  ExternalInterface.addCallback("mainsong",null,function(){the_ns.play("music/1.flv")});
-  
-  
   
   var _status;
   
-   //ExternalInterface.call("log",":|:|")
-   
-   var flushed = false
-   
+  
   ns.onStatus = function(infoObject:Object) {
             _status =  (infoObject.code);
             if (infoObject.code == "NetStream.Play.Stop")
             {
-               bg_music_index++
-              
+              bg_music_index++
+              {
                 if(bg_music_index == bg_music.length)
                 {
                   bg_music_index = 0;
                 }
-                //so.data.bg_music_index =  bg_music_index
-                save_music_index();
-                
                 the_ns.play(bg_music[bg_music_index]);
-             
+              }
             }
-             if (_status == "NetStream.Seek.Notify")
-             {
-                //ExternalInterface.call("alert",the_ns.time)
-             }
-             
-            //ExternalInterface.call("titlee",_status)
-            //ExternalInterface.call("log",_status + the_ns.time)
             
-            if (_status == "NetStream.Buffer.Flush")
-             {
-                if (flushed == false)
-                 {
-                 //the_ns.seek(so.data.song_pos);
-                 flushed = true;
-                 }
-             }
-
         }
   
   
@@ -204,7 +131,7 @@ var ds_ = new DropShadowFilter();
 		//some globals
 		var menu_len = 7;
 		var page;
-		
+		var so = SharedObject.getLocal("cindy");
       var put = "";
 		
 		
@@ -239,7 +166,7 @@ var ds_ = new DropShadowFilter();
 		navplace.home = [317,120];
 		navplace.music = [610,140];
 		navplace.tours = [610,140];
-		navplace.press = [35,140];
+		navplace.press = [610,140];
 		navplace.about = [610,140];
 		navplace.photos = [610,140];
 		navplace.contact = [35,140];
@@ -250,7 +177,7 @@ var ds_ = new DropShadowFilter();
 		headerplace.home = [377,-40];
 		headerplace.music = [645,-20];
 		headerplace.tours = [645,-20];
-		headerplace.press = [100,-20];
+		headerplace.press = [645,-20];
 		headerplace.about = [645,-20];
 		headerplace.photos = [645,-20];
 		headerplace.contact = [100,-20];
@@ -276,13 +203,13 @@ var ds_ = new DropShadowFilter();
 		
 
 				var fisherplace = {}
-		fisherplace.home = [320,729];
-		fisherplace.music = [320,729];
-		fisherplace.tours = [390,729];
-		fisherplace.press = [320,729];
-		fisherplace.about = [320,729];
-		fisherplace.photos = [320,729];
-		fisherplace.contact = [320,729];
+		fisherplace.home = [320,750];
+		fisherplace.music = [320,750];
+		fisherplace.tours = [390,750];
+		fisherplace.press = [320,750];
+		fisherplace.about = [320,750];
+		fisherplace.photos = [320,750];
+		fisherplace.contact = [320,750];
 		
 		
 		
@@ -505,7 +432,7 @@ blogger._x = 50;
 		
 		var go_home = function()
 		{
-      //the_ns.play("music/1.flv");
+		
 		}
 		
 		
@@ -523,8 +450,8 @@ blogger._x = 50;
 
 var photos = _root.createEmptyMovieClip("photos",_root.getNextHighestDepth());
 
-photos._y = 80
-photos._x = 30
+photos._y = 80;
+photos._x = 20
 //photos._width = 100;
 //photos._height = 100;
 
@@ -544,19 +471,11 @@ var my_mcl3:MovieClipLoader = new MovieClipLoader();
 			 						
 		//_root._xscale = (1000/1250) * 100;
 		//_root._yscale = (600/800) * 100;
-		
-		Stage.scaleMode = "scale";
-		Stage.align = "TL"
-		_root.scaleMode = "scale";
-		_root.align = "TL"
-				
-
-		
 		};
 		
 		my_mcl3.addListener(mclListener3);
 		//uncomment this to load the clip
-		my_mcl3.loadClip("viewer.swf", photos2);		
+		my_mcl3.loadClip("viewer.swf?scale=noscale", photos2);		
 		
 		//photos.loadMovie("header.swf");
 
@@ -801,85 +720,47 @@ var go_about = function(){
  
  
  var tourss = [
+  "March 25, 2009 \n All Star Baseball Game Ho-Ho-Kam Stadium \n Mesa, Arizona \n\n" + 
+ "March 27,2009\nChosa's Harley Davidson with Charlie Daniel\nMesa, Arizona \n\n" +
+"April 7, 2009\nToby Keith's New Bar\n202 and Dobson\nMesa, Arizona \n\n" +
+"<font color = '#889aaf'>Previous Events:</font>\n\n" +
  
- 
-  "August 15, 2009\nOld Tucson Movie Studio with Darryl Worley\nTime – TBA\n\n" +
-  
- "July 15, 2009\nOpening with George Jones\nCelebrity Theatre-Doors Open 7:00 p.m.\nPhoenix, AZ\n\n" +
- 
-
-"July 4, 2009\nRilito Park with Tracy Lawrence, Pat Green & Gloriana\nGates open at 5:00pm\nFireworks after the show\n\n"+
- 
-"July 3, 2009\nCliff Castle Casino with Dwight Yoakam & Emerson Drive\nVenue opens at 6:00pm\nFireworks after the show\n\n"+  
- 
- 
-
- 
- "",
- 
- 
- "<font color = '#889aaf'>Previous Events:</font>\n\n" +
-
-
-"June 17, 2009\nOpening with Loretta Lynn\nCelebrity Theatre-Doors Open 7:00 p.m\nPhoenix, AZ\n\n" +
- 
-"March 25, 2009 \n Celebrity Hall Of Fame Game Ho-Ho-Kam Stadium \n Mesa, Arizona \n\n" + 
-
-
-"April 22, 2009\nToby Keith's New Bar\n202 and Dobson\nMesa, Arizona \n\n" +
-
 "Nov 2008 \nHonolulu, Hawaii\nTripler Army Medical Center\n\n" +
-  
-"",
-
- 
-
-
-"November 8, 2008\nUS Airways Center - Star Spangled Banner\nPhoenix, Arizona\n\n" +
- 
-"Sep 20, 2008\nKIIM Country Music Festival, Tucson, AZ\nCindy Standage, Steve Holy, Clay Walker, Jake Owen,\nHeidi Newfield\n\n" +
-
+ "November 8, 2008\nUS Airways Center - Star Spangled Banner\nPhoenix, Arizona\n\n" +
+"", 
+"Sep 20, 2008\nKiiM Country Music Festival, Tucson, AZ\nCindy Standage, Steve Holy, Clay Walker, Jake Owens,\nHeidi Newfield\n\n" +
 
 "Jul 18, 2008\nCountry Thunder USA, Wisconsin\n\n" +
 
 
-"Jul 15, 2008\nMary Wilson and the Supremes\nPrivate Party - Kansas City\n\n" +
-
-"",
-
-
+"Jul 15, 2008\nPrivate Party - Kansas City\n\n" +
 
 "May 2, 2008\nOpening with George Jones\n\n" +
 
-"Apr 18, 2008\nCountry Thunder USA, Arizona\nGraham Central Station\n\n" +
 
-"Apr 18, 2008\nCountry Thunder USA, Arizona\nMain Stage\n\n" +
+"Apr 18, 2008\nCountry Thunder Arizona\nGraham Central Station\nFlorence, AZ\n\n" +
 
+"Apr 18, 2008\nCountry Thunder Arizona\nMain Stage\n\n" +
+"",
 
 "Mar 28, 2008\nHall of Fame Cubs Game\nHohokam Stadium\n\n" +
 
-"",
-
-
-
 "Feb 17, 2008\n Sara Evans\nMesa Performing Arts Center\n\n" +
 
+"Feb 10, 2008\nAlan Jackson\nTim's Toyota Center\nPrescott Valley, Arizona\n\n" +
 
-
-"Feb 10, 2008\nAlan Jackson\nTim's Toyota Center\n\n" +
-
-"Nov 9, 2007\nTripler Army Medical Center\nHonolulu, Hawaii\n\n" +
 
 "Nov 10, 2007\nBYU Hawaii - Concert Series\n\n" +
 
+"Nov 9, 2007\nTripler Army Medical Center\nHonolulu, Hawaii\n\n" +
 "",
-
 "Sep 28, 2007\nTrisha Yearwood\nMesa Arts Center\n\n" + 
-"Sep 22, 2007\nKIIM Country Music Festival\nCindy Standage, Neal McCoy, Clay Walker,\nTrent Tomlinson, and Luke Bryan\nTucson Electric Park\n\n" +
+
+"Sep 22, 2007\nKiim Radio Country Music festival with \nNeal McCoy, Clay Walker, Trent Tomlinson, and Luke Bryan\nTucson Electric Park\n\n" +
 
 "Sep 21, 2007\nNeal McCoy\nKNIX at Westgate\n\n" +
 
-"Aug 24, 2007\nOpening for Donny Osmond\nCelebrity Theatre\n\n" +
+"Aug 24, 2007\nOpening for Donny Osmond\nCelebrity Theatre, Phoenix\n\n" +
 
 
 "Aug 3, 2007\nTim McGraw and Faith Hill\nJobing.com Arena\n"
@@ -888,7 +769,7 @@ var go_about = function(){
  /*
  var tourss = [
  "<font size = '25' color = '#ffffff'>" + 
-"<font size = \"30\">The 2007 KIIM-FM Country Music Festival</font>" + "\n" + 
+"<font size = \"30\">The 2007 KiiM-FM Country Music Festival</font>" + "\n" + 
 "<font color = \"#dddd99\">2007</font>" + "\n\n" +
 //"<a href = \"http://www.kiimfm.com/Article.asp?id=451810\"><font color = \"#0000ff\">Read the Article</font></a>" +
 
@@ -1113,7 +994,7 @@ var go_tours = function(){
 
 */
  var press = _root.createEmptyMovieClip("press",_root.getNextHighestDepth());
- press._x = 50
+ press._x = 700
  press._y = 200
  
  var press_index;
@@ -1121,35 +1002,33 @@ var go_tours = function(){
  
  
  
- var click_link = "<font size = '22' color = '#dddd11'> &nbsp;&nbsp;click</font></a>";
+ 
  var presss = [
  
- "<font face =  'eaves' color = '#ffffff' size = '25'>" + 
- 
-"- <a href = 'http://cindystandage.com/sfh.html'>Cindy and Loretta Lynn Raise $14,000 For The Fisher House" + click_link+"</a>\n\n" +
- 
-"- <a href = 'http://cindystandage.com/airplay.html'>Cindy Standage #1 on Roots Airplay Top 50" + "\n" +
-"April 9, 2009" + click_link + "</a>\n\n" +
- 
- "- <a href = 'http://regulus2.azstarnet.com/blogs/mycountry/11488/a-twang-filled-end-to-su'> A twang-filled end to summer '08" + "\n" +
+ "<font face =  'eaves' color = '#ffffff' size = '25'>- <a href = 'http://regulus2.azstarnet.com/blogs/mycountry/11488/a-twang-filled-end-to-su'> A twang-filled end to summer '08" + "\n" +
 "\"The show also marked the return of Phoenix standout Cindy Standage, who wowed Tucson at last year's festival\"" + "\n" +
-"September 21, 2008" + click_link + "</a>\n\n" +
+"September 21, 2008</a>" + "\n\n" +
 
 
 "- <a href = 'http://www.pvtrib.com/main.asp?Search=1&ArticleID=47599&SectionID=74&SubSectionID=404&S=1'>Cindy Standage brings family experience to her music" + "\n" +
-"April 30, 2008" + click_link + "</a>\n\n" +
+"April 30, 2008</a>" + "\n\n" +
 
 
-"- <a href = '202677.php'>Country fans soak it in as festival ends long 'drought'" + "\n" +
-"September 23, 2007" + click_link + "</a>\n\n" + 
+"- <a href = 'http://cindystandage.com/airplay.html'>Cindy Standage #1 on Roots Airplay Top 100" + "\n" +
+"April 05, 2008" + "\n\n" +
+
+
+
+"- <a href = 'http://www.azstarnet.com/sn/metro/202677.php'>Country fans soak it in as festival ends long 'drought'" + "\n" +
+"September 23, 2007,</a>" +"\n\n" + 
 
 "- <a href = 'http://newsroom.byuh.edu/node/1450/print'>Rising country star part of Performance Series" + "\n" +
-"October 29, 2007" + click_link + "</a>\n\n" +
+"October 29, 2007</a>" + "\n\n" +
 
 
 
  "" +
- "- <a href = 'http://www.kiimfm.com/Article.asp?id=451810'>The 2007 KIIM-FM Country Music Festival" +  click_link + "\n" +
+ "- <a href = 'http://www.kiimfm.com/Article.asp?id=451810'>The 2007 KiiM-FM Country Music Festival" + "\n" +
 "2007</a>" + "\n\n" +
 
 
@@ -1396,55 +1275,27 @@ var can_click_next = false;
 	]
 	
 	
-	
-	var titles_2 = [
-        "It's Off",
-        "Save Yourself",
-        "Loved By You",
-        "Can't Just Kiss You",
-        "The Party",
-       "Redneck With Too Much Money",
-       "People Like Me",
-       "Brand New Key",
-       "Red Dress",
-       "The Baptism of Jesse Taylor",
-       "Jimmy, Don't Let Our Rose Die",
-       "Don't Touch Me",
-       "Everytime I Roll The Dice"
-	]
-	
-	
 	var music = _root.createEmptyMovieClip("music",_root.getNextHighestDepth())
 var music_lines = new Array(songs.length);	
-var music_lines_2 = new Array(titles_2.length);
+	
 	var demo_sound = new Sound(_root.sound_demo);
 	
 var go_music = function()
 {
 
 var last_clicked_index = -1;
+			/*
+			music.createEmptyMovieClip("grid", 999)
+			music.grid.beginFill(0xFF0000, 100);
+			music.grid.moveTo(0, 0);
+			music.grid.lineTo(500, 0);
+			music.grid.lineTo(500, 300);
+			music.grid.lineTo(0, 300);
+			music.grid.endFill();*/
 			
-			
-			var music_pic = music.createEmptyMovieClip("music_pic",music.getNextHighestDepth())
+			var music_pic = music.createEmptyMovieClip("music_pic",_root.getNextHighestDepth())
 			music_pic.loadMovie("images/62_.jpg");
       music_pic._Y = 190;
-      
-		
-		//I am useing _root.createEmpty.. because doing music was overwriting it.
-		//who knows!
-		//var music_pic_2 =  _root.createEmptyMovieClip("music_pic_2",_root.getNextHighestDepth())
-		//music_pic_2.loadMovie("images/vollii-small.png");
-		
-		//music_pic_2._Y = 190;
-		//music_pic_2._X = 1050;
-		
-		
-		var music_pic_2 =  music.createEmptyMovieClip("music_pic_2",music.getNextHighestDepth())
-		music_pic_2.loadMovie("images/vollii-small.png");
-		
-		music_pic_2._Y = 205;
-		music_pic_2._X = 325;
-		
 		
 		music.createEmptyMovieClip("grid", 999)
 			music.grid.beginFill(0xFF0000, 0);
@@ -1459,67 +1310,27 @@ var last_clicked_index = -1;
         getURL("http://cdbaby.com/cd/cindystandage");
 			}
 		
-		
-		
-		//click area for second cd
-		music.createEmptyMovieClip("go", 1000)
-			music.go.beginFill(0xFF0000, 0);
-			music.go.moveTo(325 + 0, 0 +190);
-			music.go.lineTo(325 + 190, 0 + 190);
-			music.go.lineTo(325 + 190, 196 + 190);
-			music.go.lineTo(325 + 0, 196 + 190);
-			music.go.endFill();
-			
-			music.go.onPress = function()
-			{
-        getURL("http://cindystandage.ultraentertainment.com/estore/storeproducts.aspx");
-			}
-		
-		
-		
-		music._x = 725
+		music._x = 900
 		music._y = 0
 		
 		
-	var music_fmt = new TextFormat("eaves",23); //change to eaves
-      music_fmt.color=0xffffff;
-      music_fmt.align = "left";
-      
-      var music_fmt_over = new TextFormat("eaves", 23);
-      music_fmt_over.color=0x2244CC//0x2f4052;
-      music_fmt_over.align = "left";	
-      
-       var ds_nav = new DropShadowFilter();
-		ds_nav.blurX= 8;
-		ds_nav.blurY= 8;
-		ds_nav.distance = 3;
-      
-      
-	for (var i = 0; i < titles_2.length; i++) {
-        music_lines_2[i] = music.createEmptyMovieClip("song_2_" + i, music.getNextHighestDepth());
-        music_lines_2[i].createTextField("music_txt",music_lines_2[i].getNextHighestDepth(),325,i * 24 + 400,280,100);
-        
-      music_lines_2[i].music_txt.wordWrap = true
-      
-      music_lines_2[i].music_txt.text =  titles_2[i]
-        
-      music_lines_2[i].music_txt.setTextFormat(music_fmt);
-      music_lines_2[i].music_txt.embedFonts = true;  //uncomment this html try
-      	 
-      	 
-      	
-      music_lines_2[i].filters = [ds_nav,ds_nav]
-	
-	}
-	
+		
 			
     for (var i = 0; i < songs.length; i++)
     {
       music_lines[i] = music.createEmptyMovieClip("song_" + i, music.getNextHighestDepth());
       
       music_lines[i].createTextField("music_txt",music_lines[i].getNextHighestDepth(),0,i * 24 + 400,280,100);
-     
-     
+      
+      
+      var music_fmt = new TextFormat("eaves",23); //change to eaves
+      music_fmt.color=0xffffff;
+      music_fmt.align = "left";
+      
+      var music_fmt_over = new TextFormat("eaves", 23);
+      music_fmt_over.color=0x2244CC//0x2f4052;
+      music_fmt_over.align = "left";
+      
       
         
       music_lines[i].music_txt.wordWrap = true
@@ -1531,6 +1342,10 @@ var last_clicked_index = -1;
       music_lines[i].music_txt.embedFonts = true;  //uncomment this html try
       	 
       	 
+      	 var ds_nav = new DropShadowFilter();
+		ds_nav.blurX= 8;
+		ds_nav.blurY= 8;
+		ds_nav.distance = 3;
       
       music_lines[i].filters = [ds_nav,ds_nav]
       
@@ -1618,7 +1433,7 @@ var last_clicked_index = -1;
 		
 		contact_txt.wordWrap = true
 		
-		contact_txt.htmlText = "Email: cindy@cindystandage.com\n\nContact: Ed Standage\n480.215.7248\n\nP.O. BOX 20462\nMesa, AZ 85277";
+		contact_txt.htmlText = "Email: cindy@cindystandage.com\n\nContact: Ed Standage\n480.215.7248\n\n11515 North 91st Street #144\nScottsdale, AZ 85260";
 		//header_txt.autoSize = true;
 			
 		contact_txt.setTextFormat(contact_fmt);
@@ -1712,13 +1527,6 @@ var last_clicked_index = -1;
 		ds_nav.distance = 1;
 		//ds_nav.color = 0xFFFFFF;
 		
-		
-		
-		
-
-        
-        
-        
 		var navpress = function(){
 		
         
@@ -1809,77 +1617,37 @@ var last_clicked_index = -1;
 				myMove2.run();
 				*/
 			
-
-        
-			  if (page == "home")
-        {
-          
-          if (prevpage != "home"){
-            //getURL("#home");
-            //getURL("home_.php","iframey");
-            //ExternalInterface.call("changeFrame","home_.php");
-            
-         }
-        }
 			
         if (page == "photos")
         {
-          
-          if (prevpage != "photo")
-          { 
-            go_photo();
-            //getURL("#photos");
-            //getURL("photos_.php","iframey");
-            //ExternalInterface.call("changeFrame","photos_.php");
-         }
+          go_photo();
         }
         
         if (page == "about")
         {
          
-          about_index = 0//so.data.about_index || 0;
-         if (prevpage != "about"){ 
-         go_about();
-         //getURL("#about");
-         //getURL("about_.php","iframey");
-        // ExternalInterface.call("changeFrame","about_.php");
-         }
+          about_index = so.data.about_index || 0;
+         if (prevpage != "about"){ go_about();}
         }
         
         if (page == "tours")
         {
          
-          tours_index = 0//so.data.tours_index || 0;
-          if (prevpage != "tours"){ 
-          go_tours();
-          //getURL("#tours");
-          //getURL("home_.php","iframey");
-          
-          }
+          tours_index = so.data.tours_index || 0;
+          if (prevpage != "tours"){ go_tours();}
         }
         
         if (page == "press")
         {
          
-          press_index = 0//so.data.press_index || 0;
-          if (prevpage != "press"){ 
-          go_press();
-          //getURL("#press");
-          //getURL("press_.php","iframey");
-          
-          }
+          press_index = so.data.press_index || 0;
+          if (prevpage != "press"){ go_press();}
         }
         
         if (page == "contact")
         {
          
-          if (prevpage != "contact"){ 
-          go_contact();
-          //getURL("#contact");
-          //getURL("contact_.php","iframey");
-          
-          }
-          
+          if (prevpage != "contact"){ go_contact();}
         }
         
         if (page == "music")
@@ -1891,11 +1659,7 @@ var last_clicked_index = -1;
          
          
          
-          if (prevpage != "music"){ 
-          go_music();
-          //getURL("#music");
-          //getURL("music_.php","iframey");
-          }
+          if (prevpage != "music"){ go_music();}
         }
 				
 				
@@ -1917,7 +1681,7 @@ var last_clicked_index = -1;
 			nav[i] = nav_wrapper.createEmptyMovieClip("nav_" + i, nav_wrapper.getNextHighestDepth());
 			nav[i]._x = i * nav_width;
 			nav[i]._y = 0;
-			nav[i].tabEnabled = false;
+			
 			
 				
 				//nav shadow
@@ -1950,31 +1714,12 @@ var last_clicked_index = -1;
 			
 			 ////////////////////////////////////////////;//old end nav onpress
 			
-
-				
+			
 			nav[i].onPress = function(){
-        //navpress.apply(this)
-        //ExternalInterface.call("changeFrame",this.navtext.text.toLowerCase() + "_.php");
-        //old way     
-        
-        //getURL('#' + this.navtext.text.toLowerCase());
-        ExternalInterface.call("named_anchor",this.navtext.text.toLowerCase());
+        navpress.apply(this)
 			};
+		
 			
-					
-			
-			
-			
-			
-		/*
-				        ExternalInterface.addCallback("home_",null,function(){go_home()});  
-        ExternalInterface.addCallback("go_music",null,function(){go_music()});
-        ExternalInterface.addCallback("go_photos",null,function(){go_photo()});
-        ExternalInterface.addCallback("go_press",null,function(){go_press()});
-        ExternalInterface.addCallback("go_about",null,function(){go_about()});
-        ExternalInterface.addCallback("go_tours",null,function(){go_tours()});
-        ExternalInterface.addCallback("go_contact",null,function(){go_contact()});
-			*/
       
 			
 			nav[i].onRollOver = function(){
@@ -1991,113 +1736,12 @@ var last_clicked_index = -1;
 		}
 		
 		
-	
-    
-		
-	var song_playing;
-	
-	ExternalInterface.addCallback("click_this",null,function(the_page){
-	
-	
-          var saf = ExternalInterface.call("is_saf")
-          if (saf == true)
-          {
-            ExternalInterface.call("titlee","Cindy Standage :: Back")
-          }
-          
-          
-          
-          song_playing = ExternalInterface.call("is_song_playing")
-          if (song_playing != true)
-          {
-              bg_music_index = get_saved_music_index() || 0;
-              
-               bg_music_index++
-              
-                if(bg_music_index == bg_music.length)
-                {
-                  bg_music_index = 0; //hmmo test
-                }
-                
-                  if (the_page == "myModuleDefaultState")
-                  {
-                    bg_music_index = 0;
-                    
-                  }
-               
-                save_music_index();
-                                 
-                the_ns.play(bg_music[bg_music_index]) ;
-                
-                ExternalInterface.call("song_is_playing");
-          }
-          
-           if (the_page == "myModuleDefaultState")
-           {
-               the_page = "home"; //test--
-           }
-          
-          
-         
-          
-          
-          for (var i = 0; i < nav.length; i++)
-          {
-            if (navtext[i].toLowerCase() == the_page)
-            {
-              navpress.apply(nav[i])
-              //videoSound.setVolume(100); //hmmm
-            }
-          }
-          })
-          
-          
-          
-          
-          
-          /*
-          
-         ExternalInterface.addCallback("browserURLChange",null,function(the_page){
-          			ExternalInterface.call("titlee","the page is " + the_page)
-          for (var i = 0; i < nav.length; i++)
-          {
-            if (navtext[i].toLowerCase() == the_page)
-            {
-              navpress.apply(nav[i])
-              videoSound.setVolume(100); //hmmm
-            }
-          }
-          
-          })
-          */
-          
-          
-          
-          
-          
-          
-          
-		
-		
 		
 		//flash cookie
 	
   
 		var clickedpage = so.data.page || "home";
-		
-		//only remember tours and press
-    
-    if (_level0.r != 1)
-    {
-      clickedpage = "home";
-    }
-       
-    
-    /*if (clickedpage != "press")
-    {
-      clickedpage = "home"
-    }*/
-        
+	
 		
 		for (var i = 0; i < nav.length; i++)
 		{
@@ -2113,35 +1757,6 @@ var last_clicked_index = -1;
       }
       
 		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 
 		
@@ -2291,140 +1906,6 @@ var myRoundRectangle:RoundRectangle = new RoundRectangle(purchase,10,10,150,35);
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-/*                                        
- _______            ____        _   _                  
-|__   __|          |  _ \      | | | |                 
-   | | ___  _ __   | |_) |_   _| |_| |_ ___  _ __  ___ 
-   | |/ _ \| '_ \  |  _ <| | | | __| __/ _ \| '_ \/ __|
-   | | (_) | |_) | | |_) | |_| | |_| || (_) | | | \__ \
-   |_|\___/| .__/  |____/ \__,_|\__|\__\___/|_| |_|___/
-           | |                                         
-           |_|                           
-
-*/
-//top button
-
-var make_top_button = function(url, text, putx, puty, width, height) {
-     purchase = _root.createEmptyMovieClip("purchase",_root.getNextHighestDepth());
-    //purchase.loadMovie("purchase.png");
-
-
- purchase_matrix = new Matrix()
-	purchase_matrix.createGradientBox(150, 35, Math.PI/2, 0, 0)
-
-		
-
- myRoundRectangle = new RoundRectangle(purchase,putx,puty,width,height);
-     
-     myRoundRectangle.setRegistrationPoint({x:0, y:0})
-			myRoundRectangle.setCornerRadius(3);
-			
-			myRoundRectangle.gradientStyle("linear",[0xffffff,0x8698ad],[100,100],[0,0xFF], purchase_matrix);
-			
-			myRoundRectangle.draw();	
-		
-	
-		 purchase_txt = purchase.createTextField("purchase_txt",purchase.getNextHighestDepth(),6,4,width,height);
-		
-		 purchase_fmt = new TextFormat("eaves", 27);
-		purchase_fmt.color=0x000000;
-		purchase_fmt.align = "left";
-		
-		purchase_txt.text = text;
-			
-		purchase_txt.setTextFormat(purchase_fmt);
-	
-		
-		//only when you are using font with swfmill
-		purchase_txt.embedFonts = true;
-		
-		
-		purchase.useHandCursor = true;
-			
-			purchase.mouseChildren = false;
-			
-			
-			purchase.onPress = function(){
-                getURL(url)//firefox doesn't like blank //,"_blank");
-         
-            }
-		
-		purchase.filters = [ds_]		
-		
-		 theglow = new GlowFilter();
-		theglow.color = 0xffffff;
-		theglow.blurX = 10;
-		theglow.blurY = 10;
-		theglow.alpha = .4;
-		
-		purchase.onRollOver = function(){
-				this.filters = [theglow]
-			};
-			purchase.onRollOut = function(){
-					this.filters = [ds_]				
-			}
-		
-}		
-		
-		
-make_top_button("http://cindystandage.ultraentertainment.com/estore/storeproducts.aspx", "Buy CD", 170, 10, 85, 35);		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		/*
                   _ _ _               _ _     _   
                  (_) (_)             | (_)   | |  
@@ -2508,15 +1989,6 @@ var myround_mail_Rectangle:RoundRectangle = new RoundRectangle(mailinglist,1090,
       mailingslide.loadMovie("join.swf");
       mailingslide.filters = [ds_,ds_]
       
-      mailingslide.thename.onSetFocus = function()
-      {
-        if (this.text == "Thank you!")
-         {
-            this.text = "";
-         }
-      }
-      
-      
 		var joinpress = function(){
 		
         mailingslide.open = !mailingslide.open;
@@ -2535,16 +2007,6 @@ var myround_mail_Rectangle:RoundRectangle = new RoundRectangle(mailinglist,1090,
           }
 		
 			}
-			
-			
-			//the join.swf should call the justSlide function when it is done.
-			_root.justSlide = function()
-			{
-        mailingslide.open = false
-        var mailingMove2:Move = new Move(mailingslide,mailingslide._x, -140, 500, Quad.easeInOut, "");
-            mailingMove2.run();
-			}
-			
 			
 			mailinglist.onPress = function(){joinpress.apply(mailinglist);}
 			_root.joinpress = joinpress;
@@ -2710,7 +2172,7 @@ var bottom_links = function(){
 
   fisher.attachBitmap(bitmaps[2],1)
   fisher.onPress = function(){
-    getURL("http://www.armyfisherhouses.org")
+    getURL("http://fisherhouse.org")
   }
   fisher.filters = [ds_]
 }
@@ -2986,8 +2448,6 @@ var bottom_links = function(){
                                          |_|    
 */
 		
-		//ExternalInterface.call("initSave");
-		ExternalInterface.call("loaded");
 		 
 		   var sound = new Sound()
   // sound.loadSound("music/1.mp3",true);
@@ -2995,77 +2455,8 @@ var bottom_links = function(){
 		 
 
     var thens = ns;
-    var count_pound = 0;
-    
-    
-    var naver = {};
-    naver.home = 0;
-    naver.about = 1;
-    naver.music = 2;
-    naver.photos = 3;
-    naver.tours = 4;
-    naver.press = 5;
-    naver.contact = 6;
-    
-    
-    
 		_root.onEnterFrame = function()
 		{
-		
-      /*if (_root.scaleMode != "scale")
-      {
-        _root.scaleMode = "scale";
-      }*/
-      
-      
-      if (Stage.scaleMode != "scale")
-      {
-        Stage.scaleMode = "scale";
-      }
-      
-      
-      
-      
-      count_pound++
-      if (count_pound == 5)
-      {
-        count_pound = 0;
-        //ExternalInterface.call("titlee","the music index is " + bg_music_index);
-        
-        //var pound = ExternalInterface.call("get_pound");
-
-        /*
-        var loc = ExternalInterface.call("window.location.toString");
-        var p = loc.indexOf("#");
-        
-        if (p != -1)
-        {
-        pound = loc.substr(p + 1);
-        }
-        else
-        {
-          pound = "no page"
-        }
-        */
-        
-        
-        
-        
-        //ExternalInterface.call("titlee","the page is " + pound);
-        
-        /*
-        if (page != pound && pound != "no page")
-        {
-          navpress.apply(nav[naver[pound]]);
-        }
-        */
-        
-      }
-      
-       ExternalInterface.call("flash_loaded");    
-      
-      
-      
       //_root.alert.text = sound.getBytesLoaded();
 		
 		
@@ -3080,8 +2471,6 @@ var bottom_links = function(){
           
        //}
 		
-       // ExternalInterface.call("titlee",the_ns.currentFps +  " " + bg_music_index);
-        //ExternalInterface.call("titlee",the_ns.bytesLoaded + "/" + the_ns.bytesTotal)
 		}
 	
 	}
@@ -3091,6 +2480,6 @@ var bottom_links = function(){
     static function main(mc) 
     {
 		app = new CindyStandage();
-    }
+	}
 
 }

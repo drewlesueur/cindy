@@ -1,0 +1,292 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<head>
+<title>Cindy Standage</title>
+
+</head>
+<style>
+*
+{
+  margin: 0px; padding: 0px;
+}
+
+
+#yui-history-iframe {
+  position:absolute;
+  top:0; left:0;
+  width:1px; height:1px;
+  visibility:hidden;
+}
+
+</style>
+
+</head>
+
+
+<body bgcolor = "#000000">
+<center>
+
+
+<a name = "home"></a><a name = "about"></a><a name = "music"></a><a name = "photos"></a>
+<a name = "tours"></a><a name = "press"></a><a name = "contact"></a>
+<script type="text/javascript" src="swfobject.js"></script>
+
+
+
+
+<script>
+
+
+
+function createCookie(name,value,days) {
+	if (days) {
+		var date = new Date();
+		date.setTime(date.getTime()+(days*24*60*60*1000));
+		var expires = "; expires="+date.toGMTString();
+	}
+	else var expires = "";
+	document.cookie = name+"="+value+expires+"; path=/";
+}
+
+function readCookie(name) {
+	var nameEQ = name + "=";
+	var ca = document.cookie.split(';');
+	for(var i=0;i < ca.length;i++) {
+		var c = ca[i];
+		while (c.charAt(0)==' ') c = c.substring(1,c.length);
+		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+	}
+	return null;
+}
+
+function eraseCookie(name) {
+	createCookie(name,"",-1);
+}
+
+
+var get_music_index = function()
+{
+	return readCookie("music_index");
+}
+
+var save_music_index = function(what)
+{
+	createCookie("music_index",what)
+}
+
+
+
+
+var goSave = function()
+{
+	var flasho
+	flasho = parent["mymovie"] || parent.document["mymovie"];
+	if (flasho) flasho.saveMusic();
+}
+
+
+var song_playing = false;
+
+var is_song_playing = function()
+{
+	return song_playing;
+}
+
+var song_is_playing = function()
+{
+	song_playing= true;
+}
+
+
+var initSave = function()
+{
+//setInterval(goSave,300)
+}
+
+
+var startover = true;
+var nostartover = function()
+{
+	startover = false;
+}
+
+
+var console
+var log = function(what)
+{
+	if (console && console.log)
+	{
+		console.log(what);
+	}
+}
+
+
+
+var titlee = function(le)
+{
+	document.title = le;
+}
+
+window.onbeforeunload = function()
+{
+	var flasho = parent["mymovie"] || parent.document["mymovie"];
+	var k = flasho.saveMusic();
+	//alert('goodbye' + k) 
+}
+
+
+//var loc = window.location.toString();
+//var remember = loc.substr(loc.length - 2, 2) == "#1" ? true : false;
+//remember == false ? window.location = loc + "#1" : void(0);
+
+
+var remember = false;
+//var page = loc.substring(loc.indexOf("#"));
+
+
+</script>
+
+
+<div id="flashcontent">
+  Cindy Standage
+</div>
+
+
+
+
+<script type="text/javascript">
+var file = remember == true ? "CindyStandage.swf?r=1" : "CindyStandage.swf";
+   var so = new SWFObject(file, "mymovie", "1250", "800", "8", "#000000");
+so.salign = "tl";
+so.align = "t";
+so.sale = "scale";
+   so.write("flashcontent");
+</script>
+
+
+<script>
+if (screen.width <= 1024)
+{
+	document.getElementById("mymovie").style.width = "1000px";
+document.getElementById("mymovie").style.height = "640px"
+//document.getElementById("mymovie").src = "CindyStandage_2.swf";
+}
+</script>
+
+
+<iframe id="yui-history-iframe" src="frameblank.html"></iframe>
+<input id="yui-history-field" type="hidden">
+
+<!-- Dependencies -->
+<script src="http://yui.yahooapis.com/2.6.0/build/yahoo/yahoo-min.js"></script>
+<script src="http://yui.yahooapis.com/2.6.0/build/event/event-min.js"></script>
+
+<!-- Browser History Manager source file -->
+<script src="http://yui.yahooapis.com/2.6.0/build/history/history-min.js"></script>
+
+<script>
+var myModuleBookmarkedState = YAHOO.util.History.getBookmarkedState("nav");
+var myModuleInitialState = myModuleBookmarkedState || "myModuleDefaultState"; 
+
+function myModuleStateChangeHandler (state) {
+	 go(state)
+
+}
+
+YAHOO.util.History.register("nav", myModuleInitialState, myModuleStateChangeHandler);
+
+
+var is_saf = function()
+{
+	return /a/.__proto__=='//';
+}
+
+var is_flash_loaded = false;
+
+var flash_loaded = function()
+{
+		is_flash_loaded = true;
+}
+
+var go = function(myModuleCurrentState )
+{
+	
+
+ var flasho = window["mymovie"] || document["mymovie"];
+	var flasho
+	
+	if (flasho && flasho.click_this)
+	{
+		
+		if (/a/.__proto__=='//')
+		{
+			if (is_flash_loaded == true)
+			{
+				flasho.click_this(myModuleCurrentState );
+			}
+			else
+			{
+				setTimeout(function(){go(myModuleCurrentState)},50);
+			}
+		}
+		else
+		{
+			flasho.click_this(myModuleCurrentState );
+		}
+		
+			//if (/a/.__proto__=='//') setTimeout(function(){document.title = (new Date()).getTime()});
+
+	}
+	else
+	{
+		
+		setTimeout(function(){go(myModuleCurrentState)},50);
+	}
+}
+
+
+YAHOO.util.History.onReady(function () {
+   
+    var myModuleCurrentState = YAHOO.util.History.getCurrentState("nav");
+   
+   if (is_saf() == true) document.title = "Cindy Standage :: Start";
+   
+   go(myModuleCurrentState)
+	//document.title = myModuleCurrentState
+});
+
+
+YAHOO.util.History.initialize("yui-history-field", "yui-history-iframe"); 
+
+
+var named_anchor = function(where)
+{
+	YAHOO.util.History.navigate("nav", where);
+}
+
+
+
+
+
+
+</script>
+
+</center>
+
+
+
+
+<!--Google Analytics-->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-7340164-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+</body>
+</html>
