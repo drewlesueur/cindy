@@ -1378,7 +1378,21 @@ var can_click_next = false;
 	"cindystandage-13.mp3"	]
 	
 	
-	
+	var songs_2 = [
+        "2/1.mp3",
+        "2/2.mp3",
+        "2/3.mp3",
+        "2/4.mp3",
+        "2/5.mp3",
+        "2/6.mp3",
+        "2/7.mp3",
+        "2/8.mp3",
+        "2/9.mp3",
+        "2/10.mp3",
+        "2/11.mp3",
+        "2/12.mp3",
+        "2/13.mp3"
+    ]
 	
 	var titles = ["Deeper Blue",
 	"Did He Mention My Name?",
@@ -1494,46 +1508,19 @@ var last_clicked_index = -1;
 		ds_nav.blurY= 8;
 		ds_nav.distance = 3;
       
-      
-	for (var i = 0; i < titles_2.length; i++) {
-        music_lines_2[i] = music.createEmptyMovieClip("song_2_" + i, music.getNextHighestDepth());
-        music_lines_2[i].createTextField("music_txt",music_lines_2[i].getNextHighestDepth(),300,i * 24 + 400,280,100);
-        
-      music_lines_2[i].music_txt.wordWrap = true
-      
-      music_lines_2[i].music_txt.text =  titles_2[i]
-        
-      music_lines_2[i].music_txt.setTextFormat(music_fmt);
-      music_lines_2[i].music_txt.embedFonts = true;  //uncomment this html try
-      	 
-      	 
-      	
-      music_lines_2[i].filters = [ds_nav,ds_nav]
-	
-	}
+   
 	
 			
     for (var i = 0; i < songs.length; i++)
     {
       music_lines[i] = music.createEmptyMovieClip("song_" + i, music.getNextHighestDepth());
-      
       music_lines[i].createTextField("music_txt",music_lines[i].getNextHighestDepth(),0,i * 24 + 400,280,100);
-     
-     
-      
-        
       music_lines[i].music_txt.wordWrap = true
-      
       music_lines[i].music_txt.text =  titles[i]
       //header_txt.autoSize = true;
-        
       music_lines[i].music_txt.setTextFormat(music_fmt);
       music_lines[i].music_txt.embedFonts = true;  //uncomment this html try
-      	 
-      	 
-      
       music_lines[i].filters = [ds_nav,ds_nav]
-      
       music_lines[i].onRollOver = function(){
 				this.music_txt.setTextFormat(music_fmt_over);
 			};
@@ -1543,19 +1530,13 @@ var last_clicked_index = -1;
             this.music_txt.setTextFormat(music_fmt);
            }
       }
-      
       music_lines[i].myIndex = i;
       music_lines[i].playing = false;
-      
-      
       var demo_playing = "";
       music_lines[i].onPress = function()
       {
-            
           //_root.alert.text = songs[this.myIndex]
-          
           this.playing = !this.playing;
-          
           if (this.playing == true)
           {
              for(var ii = 0; ii < music_lines.length; ii ++)
@@ -1567,6 +1548,13 @@ var last_clicked_index = -1;
                 }
              }
              
+             //make the other one not blue
+             for(var ii = 0; ii < music_lines_2.length; ii ++)
+             {
+                  music_lines_2[ii].playing = false;
+                   music_lines_2[ii].music_txt_2.setTextFormat(music_fmt);
+             }
+             
              demo_sound.loadSound("music/" + songs[this.myIndex],true);
             this.music_txt.setTextFormat(music_fmt_over);
           }
@@ -1575,12 +1563,68 @@ var last_clicked_index = -1;
              demo_sound.stop();
             this.music_txt.setTextFormat(music_fmt);
           }
-         
           demo_sound.setVolume(100);
           last_clicked_index = this.myIndex;	   
-           
       }
-  }
+    }
+    
+    for (var i = 0; i < songs_2.length; i++)
+    {
+      music_lines_2[i] = music.createEmptyMovieClip("song_2_" + i, music.getNextHighestDepth());
+      music_lines_2[i].createTextField("music_txt_2",music_lines_2[i].getNextHighestDepth(),300,i * 24 + 400,280,100);
+      music_lines_2[i].music_txt_2.wordWrap = true
+      music_lines_2[i].music_txt_2.text =  titles_2[i]
+      //header_txt.autoSize = true;
+      music_lines_2[i].music_txt_2.setTextFormat(music_fmt);
+      music_lines_2[i].music_txt_2.embedFonts = true;  //uncomment this html try
+      music_lines_2[i].filters = [ds_nav,ds_nav]
+      music_lines_2[i].onRollOver = function(){
+				this.music_txt_2.setTextFormat(music_fmt_over);
+			};
+			music_lines_2[i].onRollOut = function(){
+          if (this.playing == false)
+          {
+            this.music_txt_2.setTextFormat(music_fmt);
+           }
+      }
+      music_lines_2[i].myIndex = i;
+      music_lines_2[i].playing = false;
+      var demo_playing = "";
+      music_lines_2[i].onPress = function()
+      {
+          //_root.alert.text = songs[this.myIndex]
+          this.playing = !this.playing;
+          if (this.playing == true)
+          {
+             for(var ii = 0; ii < music_lines_2.length; ii ++)
+             {
+                if (this != music_lines_2[ii])
+                {
+                  music_lines_2[ii].playing = false;
+                   music_lines_2[ii].music_txt_2.setTextFormat(music_fmt);
+                }
+             }
+             
+             //make the other one not blue
+             for(var ii = 0; ii < music_lines.length; ii ++)
+             {
+                  music_lines[ii].playing = false;
+                   music_lines[ii].music_txt.setTextFormat(music_fmt);
+             }
+             demo_sound.loadSound("music/" + songs_2[this.myIndex],true);
+            this.music_txt_2.setTextFormat(music_fmt_over);
+          }
+          else
+          {
+             demo_sound.stop();
+            this.music_txt_2.setTextFormat(music_fmt);
+          }
+          demo_sound.setVolume(100);
+          last_clicked_index = this.myIndex;	   
+      }
+    }
+
+
 }
 	
 	
@@ -2322,8 +2366,12 @@ var myRoundRectangle:RoundRectangle = new RoundRectangle(purchase,10,10,150,35);
 */
 //top button
 
-var make_top_button = function(url, text, putx, puty, width, height) {
-     purchase = _root.createEmptyMovieClip("purchase",_root.getNextHighestDepth());
+var top_button_index = 0;
+
+var make_top_button = function(url, text, putx, puty, width, height, font) {
+     top_button_index++;
+     font = font || 27
+     purchase = _root.createEmptyMovieClip("top_button_" + top_button_index,_root.getNextHighestDepth());
     //purchase.loadMovie("purchase.png");
 
 
@@ -2344,7 +2392,7 @@ var make_top_button = function(url, text, putx, puty, width, height) {
 	
 		 purchase_txt = purchase.createTextField("purchase_txt",purchase.getNextHighestDepth(),6,4,width,height);
 		
-		 purchase_fmt = new TextFormat("eaves", 27);
+		 purchase_fmt = new TextFormat("eaves", font);
 		purchase_fmt.color=0x000000;
 		purchase_fmt.align = "left";
 		
@@ -2381,13 +2429,17 @@ var make_top_button = function(url, text, putx, puty, width, height) {
 			purchase.onRollOut = function(){
 					this.filters = [ds_]				
 			}
-		
+		return purchase;
 }		
 		
 		
-make_top_button("http://cindystandage.ultraentertainment.com/estore/storeproducts.aspx", "Buy CD", 170, 10, 85, 35);		
-		
-		
+make_top_button("http://cindystandage.ultraentertainment.com/estore/storeproducts.aspx?categoryid=3", "Buy CD", 170, 10, 85, 35);		
+
+var cal = make_top_button("http://cindystandage.ultraentertainment.com/estore/storeproducts.aspx", ".          If Coach \"Cal\" sent you, click here.", 10, 55, 245, 25 , 18);		
+var uk = cal.createEmptyMovieClip("uk", cal.getNextHighestDepth())
+uk.loadMovie("uk-small.png");
+uk._X = 5;
+uk._Y = 5;
 		
 		
 		
