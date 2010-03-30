@@ -1443,7 +1443,7 @@ var last_clicked_index = -1;
 		music_pic_2.loadMovie("images/vollii-small.png");
 		
 		music_pic_2._Y = 205;
-		music_pic_2._X = 325;
+		music_pic_2._X = 300;
 		
 		
 		music.createEmptyMovieClip("grid", 999)
@@ -1464,10 +1464,10 @@ var last_clicked_index = -1;
 		//click area for second cd
 		music.createEmptyMovieClip("go", 1000)
 			music.go.beginFill(0xFF0000, 0);
-			music.go.moveTo(325 + 0, 0 +190);
-			music.go.lineTo(325 + 190, 0 + 190);
-			music.go.lineTo(325 + 190, 196 + 190);
-			music.go.lineTo(325 + 0, 196 + 190);
+			music.go.moveTo(300 + 0, 0 +190);
+			music.go.lineTo(300 + 190, 0 + 190);
+			music.go.lineTo(300 + 190, 196 + 190);
+			music.go.lineTo(300 + 0, 196 + 190);
 			music.go.endFill();
 			
 			music.go.onPress = function()
@@ -1497,7 +1497,7 @@ var last_clicked_index = -1;
       
 	for (var i = 0; i < titles_2.length; i++) {
         music_lines_2[i] = music.createEmptyMovieClip("song_2_" + i, music.getNextHighestDepth());
-        music_lines_2[i].createTextField("music_txt",music_lines_2[i].getNextHighestDepth(),325,i * 24 + 400,280,100);
+        music_lines_2[i].createTextField("music_txt",music_lines_2[i].getNextHighestDepth(),300,i * 24 + 400,280,100);
         
       music_lines_2[i].music_txt.wordWrap = true
       
