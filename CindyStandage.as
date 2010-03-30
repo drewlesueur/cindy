@@ -250,10 +250,10 @@ var ds_ = new DropShadowFilter();
 		headerplace.home = [377,-40];
 		headerplace.music = [645,-20];
 		headerplace.tours = [645,-20];
-		headerplace.press = [100,-20];
+		headerplace.press = [250,-20];
 		headerplace.about = [645,-20];
 		headerplace.photos = [645,-20];
-		headerplace.contact = [100,-20];
+		headerplace.contact = [250,-20];
 		
 		
 				var bloggerplace = {}
@@ -2231,7 +2231,7 @@ var purchase_matrix = new Matrix()
 
 		
 
-var myRoundRectangle:RoundRectangle = new RoundRectangle(purchase,10,10,150,35);
+var myRoundRectangle:RoundRectangle = new RoundRectangle(purchase,-10000,10,150,35);
      
      myRoundRectangle.setRegistrationPoint({x:0, y:0})
 			myRoundRectangle.setCornerRadius(3);
@@ -2433,13 +2433,13 @@ var make_top_button = function(url, text, putx, puty, width, height, font) {
 }		
 		
 		
-make_top_button("http://cindystandage.ultraentertainment.com/estore/storeproducts.aspx?categoryid=3", "Buy CD", 170, 10, 85, 35);		
+make_top_button("http://cindystandage.ultraentertainment.com/estore/storeproducts.aspx", "      Get Cindy's New CD", 10, 10, 245, 35);		
 
-var cal = make_top_button("http://cindystandage.ultraentertainment.com/estore/storeproducts.aspx", ".          If Coach \"Cal\" sent you, click here.", 10, 55, 245, 25 , 18);		
+var cal = make_top_button("http://cindystandage.ultraentertainment.com/estore/storeproducts.aspx?categoryid=3", ".                    If Coach \"Cal\" sent you,\n                      click here.", 10, 65, 245, 45 , 20);		
 var uk = cal.createEmptyMovieClip("uk", cal.getNextHighestDepth())
-uk.loadMovie("uk-small.png");
+uk.loadMovie("uk-35.png");
 uk._X = 5;
-uk._Y = 5;
+uk._Y = 6;
 		
 		
 		
