@@ -2435,7 +2435,7 @@ var make_top_button = function(url, text, putx, puty, width, height, font) {
 		
 make_top_button("http://cindystandage.ultraentertainment.com/estore/storeproducts.aspx", "      Get Cindy's New CD", 10, 10, 245, 35);		
 
-var cal = make_top_button("http://cindystandage.ultraentertainment.com/estore/storeproducts.aspx?categoryid=3", ".                    If Coach \"Cal\" sent you,\n                      click here.", 10, 65, 245, 45 , 20);		
+var cal = make_top_button("http://cindystandage.ultraentertainment.com/estore/storeproducts.aspx?categoryid=3", ".                    If Coach \"Cal\" sent you,\n                                   click here.", 10, 65, 245, 45 , 20);		
 var uk = cal.createEmptyMovieClip("uk", cal.getNextHighestDepth())
 uk.loadMovie("uk-35.png");
 uk._X = 5;
