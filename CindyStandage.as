@@ -38,8 +38,13 @@ class CindyStandage {
 
 	function CindyStandage()
 	{
-	
-	
+        
+        var top_button_index = 0;
+        var ds_;
+        ds_ = new DropShadowFilter();
+		ds_.blurX= 8;
+		ds_.blurY= 8;
+		ds_.distance = 3;
 	
 /*
         _       _           _     
@@ -188,10 +193,7 @@ ns.setBufferTime(15);
 //see bottom
    
    
-var ds_ = new DropShadowFilter();
-		ds_.blurX= 8;
-		ds_.blurY= 8;
-		ds_.distance = 3;
+
 
 
 
@@ -1432,17 +1434,67 @@ var can_click_next = false;
 var music_lines = new Array(songs.length);	
 var music_lines_2 = new Array(titles_2.length);
 	var demo_sound = new Sound(_root.sound_demo);
+
+var alert = function(x) {
+    ExternalInterface.call("alert",x);
+}
+
+
+
+var make_button = function(url, text, putx, puty, width, height, font, elem) {
+
+     elem = elem || _root
+     top_button_index++;
+     font = font || 27
+     var purchase = elem.createEmptyMovieClip("top_button_" + top_button_index,elem.getNextHighestDepth());
+    //purchase.loadMovie("purchase.png");
+    var purchase_matrix = new Matrix()
+	purchase_matrix.createGradientBox(150, 35, Math.PI/2, 0, 0)
+    var myRoundRectangle = new RoundRectangle(purchase,putx,puty,width,height);
+     myRoundRectangle.setRegistrationPoint({x:0, y:0})
+			myRoundRectangle.setCornerRadius(3);
+			myRoundRectangle.gradientStyle("linear",[0xffffff,0x8698ad],[100,100],[0,0xFF], purchase_matrix);
+			myRoundRectangle.draw();	
+		 var purchase_txt = purchase.createTextField("purchase_txt",purchase.getNextHighestDepth(),6,4,width,height);
+		var purchase_fmt = new TextFormat("eaves", font);
+		purchase_fmt.color=0x000000;
+		purchase_fmt.align = "left";
+		purchase_txt.text = text;
+		purchase_txt.setTextFormat(purchase_fmt);
+		//only when you are using font with swfmill
+		purchase_txt.embedFonts = true;
+		purchase.useHandCursor = true;
+			purchase.mouseChildren = false;
+			purchase.onPress = function(){
+                getURL(url)//firefox doesn't like blank //,"_blank");
+            }
+		purchase.filters = [ds_]		
+		 var theglow = new GlowFilter();
+		theglow.color = 0xffffff;
+		theglow.blurX = 10;
+		theglow.blurY = 10;
+		theglow.alpha = .4;
+		purchase.onRollOver = function(){
+				this.filters = [theglow]
+			};
+			purchase.onRollOut = function(){
+					this.filters = [ds_]				
+			}
+		return purchase;
+}	
+
 	
 var go_music = function()
 {
-
-var last_clicked_index = -1;
+    
+    var last_clicked_index = -1;
 			
-			
+			//dont delete. this is temporary
+			/*
 			var music_pic = music.createEmptyMovieClip("music_pic",music.getNextHighestDepth())
 			music_pic.loadMovie("images/62_.jpg");
-      music_pic._Y = 190;
-      
+            music_pic._Y = 190;
+            */
 		
 		//I am useing _root.createEmpty.. because doing music was overwriting it.
 		//who knows!
@@ -1456,10 +1508,13 @@ var last_clicked_index = -1;
 		var music_pic_2 =  music.createEmptyMovieClip("music_pic_2",music.getNextHighestDepth())
 		music_pic_2.loadMovie("images/vollii-small.png");
 		
+		var cd2_x = 170
 		music_pic_2._Y = 205;
-		music_pic_2._X = 300;
+		music_pic_2._X = cd2_x;
 		
 		
+		//Dont delete. this is temporary
+		/*
 		music.createEmptyMovieClip("grid", 999)
 			music.grid.beginFill(0xFF0000, 0);
 			music.grid.moveTo(0, 0 +190);
@@ -1472,16 +1527,16 @@ var last_clicked_index = -1;
 			{
         getURL("http://cdbaby.com/cd/cindystandage");
 			}
-		
+		*/
 		
 		
 		//click area for second cd
 		music.createEmptyMovieClip("go", 1000)
 			music.go.beginFill(0xFF0000, 0);
-			music.go.moveTo(300 + 0, 0 +190);
-			music.go.lineTo(300 + 190, 0 + 190);
-			music.go.lineTo(300 + 190, 196 + 190);
-			music.go.lineTo(300 + 0, 196 + 190);
+			music.go.moveTo(cd2_x + 0, 0 +190);
+			music.go.lineTo(cd2_x + 190, 0 + 190);
+			music.go.lineTo(cd2_x + 190, 196 + 190);
+			music.go.lineTo(cd2_x + 0, 196 + 190);
 			music.go.endFill();
 			
 			music.go.onPress = function()
@@ -1510,8 +1565,9 @@ var last_clicked_index = -1;
       
    
 	
-			
-    for (var i = 0; i < songs.length; i++)
+	//commenting out the first cd for now		
+    //for (var i = 0; i < songs.length; i++)
+    for (var i = 0; i < 0; i++)
     {
       music_lines[i] = music.createEmptyMovieClip("song_" + i, music.getNextHighestDepth());
       music_lines[i].createTextField("music_txt",music_lines[i].getNextHighestDepth(),0,i * 24 + 400,280,100);
@@ -1571,7 +1627,7 @@ var last_clicked_index = -1;
     for (var i = 0; i < songs_2.length; i++)
     {
       music_lines_2[i] = music.createEmptyMovieClip("song_2_" + i, music.getNextHighestDepth());
-      music_lines_2[i].createTextField("music_txt_2",music_lines_2[i].getNextHighestDepth(),300,i * 24 + 400,280,100);
+      music_lines_2[i].createTextField("music_txt_2",music_lines_2[i].getNextHighestDepth(),cd2_x,i * 24 + 400,280,100);
       music_lines_2[i].music_txt_2.wordWrap = true
       music_lines_2[i].music_txt_2.text =  titles_2[i]
       //header_txt.autoSize = true;
@@ -1623,7 +1679,9 @@ var last_clicked_index = -1;
           last_clicked_index = this.myIndex;	   
       }
     }
-
+    
+    var purchase = make_button("http://cindystandage.ultraentertainment.com/estore/storeproducts.aspx?categoryid=3", "Purchase CD or individual songs", cd2_x, 725, 245, 35 , 24, music);		
+   
 
 }
 	
@@ -2366,116 +2424,19 @@ var myRoundRectangle:RoundRectangle = new RoundRectangle(purchase,-10000,10,150,
 */
 //top button
 
-var top_button_index = 0;
-
-var make_top_button = function(url, text, putx, puty, width, height, font) {
-     top_button_index++;
-     font = font || 27
-     purchase = _root.createEmptyMovieClip("top_button_" + top_button_index,_root.getNextHighestDepth());
-    //purchase.loadMovie("purchase.png");
-
-
- purchase_matrix = new Matrix()
-	purchase_matrix.createGradientBox(150, 35, Math.PI/2, 0, 0)
-
-		
-
- myRoundRectangle = new RoundRectangle(purchase,putx,puty,width,height);
-     
-     myRoundRectangle.setRegistrationPoint({x:0, y:0})
-			myRoundRectangle.setCornerRadius(3);
-			
-			myRoundRectangle.gradientStyle("linear",[0xffffff,0x8698ad],[100,100],[0,0xFF], purchase_matrix);
-			
-			myRoundRectangle.draw();	
-		
-	
-		 purchase_txt = purchase.createTextField("purchase_txt",purchase.getNextHighestDepth(),6,4,width,height);
-		
-		 purchase_fmt = new TextFormat("eaves", font);
-		purchase_fmt.color=0x000000;
-		purchase_fmt.align = "left";
-		
-		purchase_txt.text = text;
-			
-		purchase_txt.setTextFormat(purchase_fmt);
 	
 		
-		//only when you are using font with swfmill
-		purchase_txt.embedFonts = true;
-		
-		
-		purchase.useHandCursor = true;
-			
-			purchase.mouseChildren = false;
-			
-			
-			purchase.onPress = function(){
-                getURL(url)//firefox doesn't like blank //,"_blank");
-         
-            }
-		
-		purchase.filters = [ds_]		
-		
-		 theglow = new GlowFilter();
-		theglow.color = 0xffffff;
-		theglow.blurX = 10;
-		theglow.blurY = 10;
-		theglow.alpha = .4;
-		
-		purchase.onRollOver = function(){
-				this.filters = [theglow]
-			};
-			purchase.onRollOut = function(){
-					this.filters = [ds_]				
-			}
-		return purchase;
-}		
-		
-		
-make_top_button("http://cindystandage.ultraentertainment.com/estore/storeproducts.aspx", "      Get Cindy's New CD", 10, 10, 245, 35);		
-
-var cal = make_top_button("http://cindystandage.ultraentertainment.com/estore/storeproducts.aspx?categoryid=3", ".                    If Coach \"Cal\" sent you,\n                                   click here.", 10, 65, 245, 45 , 20);		
+				
+make_button("http://cindystandage.ultraentertainment.com/estore/storeproducts.aspx", "      Get Cindy's New CD", 10, 10, 245, 35);	    	
+//var cal = make_top_button("http://cindystandage.ultraentertainment.com/estore/storeproducts.aspx?categoryid=3", ".                    If Coach \"Cal\" sent you,\n                                   click here.", 10, 65, 245, 45 , 20);		
+var cal = make_button("#nav=music", ".                    If Coach \"Cal\" sent you,\n                                   click here.", 10, 65, 245, 45 , 20);		
 var uk = cal.createEmptyMovieClip("uk", cal.getNextHighestDepth())
 uk.loadMovie("uk-35.png");
 uk._X = 5;
 uk._Y = 6;
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+	
 		
 		/*
                   _ _ _               _ _     _   
