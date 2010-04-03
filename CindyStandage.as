@@ -1508,6 +1508,11 @@ var go_music = function()
 		var music_pic_2 =  music.createEmptyMovieClip("music_pic_2",music.getNextHighestDepth())
 		music_pic_2.loadMovie("images/vollii-small.png");
 		
+		var uk_small = music.createEmptyMovieClip("uk_small",music.getNextHighestDepth())
+		uk_small.loadMovie("uk-small.png");
+		uk_small._X = 137;
+		uk_small._Y = 523; 
+		
 		var cd2_x = 170
 		music_pic_2._Y = 205;
 		music_pic_2._X = cd2_x;
@@ -1541,7 +1546,8 @@ var go_music = function()
 			
 			music.go.onPress = function()
 			{
-        getURL("http://cindystandage.ultraentertainment.com/estore/storeproducts.aspx");
+                //getURL("http://cindystandage.ultraentertainment.com/estore/storeproducts.aspx");
+                getURL("http://www.cdbaby.com/cd/CindyStandage1");
 			}
 		
 		
@@ -1680,8 +1686,8 @@ var go_music = function()
       }
     }
     
-    var purchase = make_button("http://cindystandage.ultraentertainment.com/estore/storeproducts.aspx?categoryid=3", "Purchase CD or individual songs", cd2_x, 725, 245, 35 , 24, music);		
-   
+    //var purchase = make_button("http://cindystandage.ultraentertainment.com/estore/storeproducts.aspx?categoryid=3", "Purchase CD or individual songs", cd2_x, 725, 245, 35 , 24, music);		
+   var purchase = make_button("http://www.cdbaby.com/cd/CindyStandage1", "Purchase CD or individual songs", cd2_x, 725, 245, 35 , 24, music);		
 
 }
 	
@@ -2427,7 +2433,8 @@ var myRoundRectangle:RoundRectangle = new RoundRectangle(purchase,-10000,10,150,
 	
 		
 				
-make_button("http://cindystandage.ultraentertainment.com/estore/storeproducts.aspx", "      Get Cindy's New CD", 10, 10, 245, 35);	    	
+//make_button("http://cindystandage.ultraentertainment.com/estore/storeproducts.aspx", "      Get Cindy's New CD", 10, 10, 245, 35);	    	
+make_button("#nav=music", "      Get Cindy's New CD", 10, 10, 245, 35);	    	
 //var cal = make_top_button("http://cindystandage.ultraentertainment.com/estore/storeproducts.aspx?categoryid=3", ".                    If Coach \"Cal\" sent you,\n                                   click here.", 10, 65, 245, 45 , 20);		
 var cal = make_button("#nav=music", ".                    If Coach \"Cal\" sent you,\n                                   click here.", 10, 65, 245, 45 , 20);		
 var uk = cal.createEmptyMovieClip("uk", cal.getNextHighestDepth())
