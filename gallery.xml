@@ -1,302 +1,244 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <simpleviewergallery maxImageWidth="640" maxImageHeight="580" textColor="0xFFFFFF" frameColor="0xFFFFFF" frameWidth="10" stagePadding="40" navPadding="40" thumbnailColumns="3" thumbnailRows="3" navPosition="left" vAlign="center" hAlign="center" title="" enableRightClickOpen="true" backgroundImagePath="" imagePath="" thumbPath="">
-
 <image>
-	<filename>new3.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16">Backstage advice from Loretta Lynn</font></i>]]></caption>		
+  <filename>new3.jpg</filename>
+  <caption><![CDATA[<i><font face="Book Antiqua" size="16">Backstage advice from Loretta Lynn</font></i>]]></caption>
 </image>
 
 <image>
-	<filename>new1.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16">Cindy and Dwight Yoakam at Cliff Castle Casino.</font></i>]]></caption>		
-</image>
-
-
-
-<image>
-	<filename>merle.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16"></font></i>]]></caption>		
-</image>
-
-
-<image>
-	<filename>red_bg.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16"></font></i>]]></caption>		
+  <filename>new1.jpg</filename>
+  <caption><![CDATA[<i><font face="Book Antiqua" size="16">Cindy and Dwight Yoakam at Cliff Castle Casino.</font></i>]]></caption>
 </image>
 
 <image>
-	<filename>green_bg.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16"></font></i>]]></caption>		
-</image>
-
-
-<image>
-	<filename>blue.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16"></font></i>]]></caption>		
-</image>
-
-
-<image>
-	<filename>middle.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16"></font></i>]]></caption>		
-</image>
-
-
-
-<image>
-	<filename>white.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16"></font></i>]]></caption>		
-</image>
-
-
-<image>
-	<filename>12.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16">Shelby Singleton, Owner Of Sun Records</font></i>]]></caption>		
-</image>
-
-
-<image>
-	<filename>blue2.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16"></font></i>]]></caption>		
-</image>
-
-
-<image>
-	<filename>blue3.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16"></font></i>]]></caption>		
-</image>
-
-
-<image>
-	<filename>game.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16"></font></i>]]></caption>		
-</image>
-
-
-<image>
-	<filename>tag.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16"></font></i>]]></caption>		
+  <filename>merle.jpg</filename>
+  <caption><![CDATA[<i><font face="Book Antiqua" size="16"></font></i>]]></caption>
 </image>
 
 <image>
-	<filename>tan2.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16"></font></i>]]></caption>		
+  <filename>green_bg.jpg</filename>
+  <caption><![CDATA[<i><font face="Book Antiqua" size="16"></font></i>]]></caption>
 </image>
 
 <image>
-	<filename>group1.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16"></font></i>]]></caption>		
-</image>
-
-
-<image>
-	<filename>group2.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16"></font></i>]]></caption>		
+  <filename>blue.jpg</filename>
+  <caption><![CDATA[<i><font face="Book Antiqua" size="16"></font></i>]]></caption>
 </image>
 
 <image>
-	<filename>group3.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16"></font></i>]]></caption>		
+  <filename>middle.jpg</filename>
+  <caption><![CDATA[<i><font face="Book Antiqua" size="16"></font></i>]]></caption>
 </image>
 
 <image>
-	<filename>black.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16"></font></i>]]></caption>		
-</image>
-
-
-
-
-<!-- <image>
-	<filename>wide.jpg</filename>
-	<caption><![CDATA[Captions can be HTML formatted. Supported tags are <b>bold</b>, <u>underline</u>, <i>italics</i>, <u><a href="http://www.google.com" target="_blank">hyperlinks</a></u>, linebreaks<br> and <font color="#ffff00" size="30">font tags</font>.]]></font></i>]]></caption>		
-</image>-->
-
-
-<image>
-	<filename>new2.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16">Backstage with Dwight Yoakam's band.</font></i>]]></caption>		
-</image>
-
-
-<image>
-	<filename>new4.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16">Cindy and Pat Green at the Freedom Festival</font></i>]]></caption>		
-</image>
-
-<!--<image>
-	<filename>5.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16">Cindy Opening For Merle Haggard</font></i>]]></caption>		
-</image>-->
-
-
-<image>
-	<filename>6.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16">Cindy Headlining With Jake Owen At Tucson Music Festival</font></i>]]></caption>		
-</image>
-<image>
-	<filename>7.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16">Cindy Opening For Randy Travis</font></i>]]></caption>		
-</image>
-<image>
-	<filename>10.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16">Cindy Headlining With Heidi Newfield</font></i>]]></caption>		
-</image>
-
-<!--<image>
-	<filename>9.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16">Backstage At The Opry With Brad Paisley</font></i>]]></caption>		
-</image>-->
-
-
-<image>
-	<filename>new2-1.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16">On the bus with Brad from Emerson Drive</font></i>]]></caption>		
+  <filename>white.jpg</filename>
+  <caption><![CDATA[<i><font face="Book Antiqua" size="16"></font></i>]]></caption>
 </image>
 
 <image>
-	<filename>11.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16">Cindy Opening For Donny Osmond </font></i>]]></caption>		
+  <filename>12.jpg</filename>
+  <caption><![CDATA[<i><font face="Book Antiqua" size="16">Shelby Singleton, Owner Of Sun Records</font></i>]]></caption>
 </image>
 
 <image>
-	<filename>13.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16">Cindy And Ace Backstage At Alice Cooper's Christmas Party</font></i>]]></caption>		
-</image>
-<image>
-	<filename>new2-5.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16">Backstage with Glorianna</font></i>]]></caption>		
-</image>
-<image>
-	<filename>new2-6.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16">Fourth of July 2009</font></i>]]></caption>		
+  <filename>blue2.jpg</filename>
+  <caption><![CDATA[<i><font face="Book Antiqua" size="16"></font></i>]]></caption>
 </image>
 
 <image>
-	<filename>17.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16">Cindy With Her Vocal Coach, Jan Smith, in Atlanta</font></i>]]></caption>		
-</image>
-<image>
-	<filename>2.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16">Cindy Opening For George Jones</font></i>]]></caption>		
-</image>
-<image>
-	<filename>4.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16">Cindy Opening For Mary Wilson and the Supremes</font></i>]]></caption>		
+  <filename>blue3.jpg</filename>
+  <caption><![CDATA[<i><font face="Book Antiqua" size="16"></font></i>]]></caption>
 </image>
 
 <image>
-	<filename>20.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16">Backstage With Ben And Matt KNIX 102.5 Phoenix</font></i>]]></caption>		
-</image>
-<image>
-	<filename>21.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16">Opening For Neal McCoy For The Second Time</font></i>]]></caption>		
-</image>
-<image>
-	<filename>27.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16">Cindy Headlining With Luke Bryan</font></i>]]></caption>		
+  <filename>game.jpg</filename>
+  <caption><![CDATA[<i><font face="Book Antiqua" size="16"></font></i>]]></caption>
 </image>
 
 <image>
-	<filename>28.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16">Cindy With Command Sargeant Major Jenkins - Fisher House Performance Hawaii</font></i>]]></caption>		
-</image>
-
-
-<!--<image>
-	<filename>29.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16">Fisher House Ft. Campbell, KY</font></i>]]></caption>		
-</image>-->
-
-<image>
-	<filename>31.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16">Cindy Standage Band<br> Fisher House Hawaii</font></i>]]></caption>		
-</image>
-
-<!--<image>
-	<filename>35.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16">Backstage At The Opry With<br> Jim Ed Brown</font></i>]]></caption>		
-</image>-->
-	
-<image>
-	<filename>36.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16">Cindy And Joe Nichols At The Grand Ole Opry</font></i>]]></caption>		
-</image>
-<image>
-	<filename>37.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16">Hal Ketchum and Cindy</font></i>]]></caption>		
-</image>
-<image>
-	<filename>38.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16">Cindy And Terri Clark In New Mexico</font></i>]]></caption>		
-</image>
-
-<!--<image>
-	<filename>39.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16">Cindy With Tommy White Who Plays Steel On Her CD And Plays At The Opry</font></i>]]></caption>		
-</image>-->
-
-<!--<image>
-	<filename>40.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16">Cindy On The "Rockin' Ron" Radio Show KMOG Payson</font></i>]]></caption>		
-</image>-->
-
-<image>
-	<filename>41.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16">Live With Sandy Moss KPPV Prescott, AZ</font></i>]]></caption>		
-</image>
-
-<!--<image>
-	<filename>42.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16">Cindy And Deak Broadcasting Live On The Ken Byers Show KQNA</font></i>]]></caption>		
-</image>-->
-
-<image>
-	<filename>43.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16">Live Radio Show With Honey Harris Albuquerque, NM</font></i>]]></caption>		
-</image>
-<image>
-	<filename>44.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16">Live On The Stage</font></i>]]></caption>		
-</image>
-
-<!--<image>
-	<filename>19.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16">Cindy And Cheryl</font></i>]]></caption>		
-</image>-->
-
-
-<image>
-	<filename>62.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16">CD Cover "Same Red Hair"</font></i>]]></caption>		
-</image>
-<image>
-	<filename>61.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16">Cindy And Marc Stowe, Producer Sony Studio Nashville</font></i>]]></caption>		
+  <filename>tag.jpg</filename>
+  <caption><![CDATA[<i><font face="Book Antiqua" size="16"></font></i>]]></caption>
 </image>
 
 <image>
-	<filename>65.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16">Sony Studio Nashville CD Crew</font></i>]]></caption>		
+  <filename>tan2.jpg</filename>
+  <caption><![CDATA[<i><font face="Book Antiqua" size="16"></font></i>]]></caption>
 </image>
 
 <image>
-	<filename>large4.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16">Cindy And "Sweet Ed"<br>Grand Ole Opry Press Room</font></i>]]></caption>		
+  <filename>group1.jpg</filename>
+  <caption><![CDATA[<i><font face="Book Antiqua" size="16"></font></i>]]></caption>
 </image>
 
 <image>
-	<filename>large7.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16">Opening For Neal McCoy - Third Time</font></i>]]></caption>		
+  <filename>group2.jpg</filename>
+  <caption><![CDATA[<i><font face="Book Antiqua" size="16"></font></i>]]></caption>
 </image>
+
 <image>
-	<filename>large11.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16"> Acoustic Set At Celebrity Theatre
-</font></i>]]></caption>		
+  <filename>group3.jpg</filename>
+  <caption><![CDATA[<i><font face="Book Antiqua" size="16"></font></i>]]></caption>
 </image>
+
 <image>
-	<filename>1.jpg</filename>
-	<caption><![CDATA[<i><font face="Book Antiqua" size="16">Cindy Live KIIM Country Music Festival</font></i>]]></caption>		
+  <filename>black.jpg</filename>
+  <caption><![CDATA[<i><font face="Book Antiqua" size="16"></font></i>]]></caption>
 </image>
+
+<image>
+  <filename>new2.jpg</filename>
+  <caption><![CDATA[<i><font face="Book Antiqua" size="16">Backstage with Dwight Yoakam's band.</font></i>]]></caption>
+</image>
+
+<image>
+  <filename>new4.jpg</filename>
+  <caption><![CDATA[<i><font face="Book Antiqua" size="16">Cindy and Pat Green at the Freedom Festival</font></i>]]></caption>
+</image>
+
+<image>
+  <filename>6.jpg</filename>
+  <caption><![CDATA[<i><font face="Book Antiqua" size="16">Cindy Headlining With Jake Owen At Tucson Music Festival</font></i>]]></caption>
+</image>
+
+<image>
+  <filename>7.jpg</filename>
+  <caption><![CDATA[<i><font face="Book Antiqua" size="16">Cindy Opening For Randy Travis</font></i>]]></caption>
+</image>
+
+<image>
+  <filename>10.jpg</filename>
+  <caption><![CDATA[<i><font face="Book Antiqua" size="16">Cindy Headlining With Heidi Newfield</font></i>]]></caption>
+</image>
+
+<image>
+  <filename>new2-1.jpg</filename>
+  <caption><![CDATA[<i><font face="Book Antiqua" size="16">On the bus with Brad from Emerson Drive</font></i>]]></caption>
+</image>
+
+<image>
+  <filename>11.jpg</filename>
+  <caption><![CDATA[<i><font face="Book Antiqua" size="16">Cindy Opening For Donny Osmond </font></i>]]></caption>
+</image>
+
+<image>
+  <filename>13.jpg</filename>
+  <caption><![CDATA[<i><font face="Book Antiqua" size="16">Cindy And Ace Backstage At Alice Cooper's Christmas Party</font></i>]]></caption>
+</image>
+
+<image>
+  <filename>new2-5.jpg</filename>
+  <caption><![CDATA[<i><font face="Book Antiqua" size="16">Backstage with Glorianna</font></i>]]></caption>
+</image>
+
+<image>
+  <filename>new2-6.jpg</filename>
+  <caption><![CDATA[<i><font face="Book Antiqua" size="16">Fourth of July 2009</font></i>]]></caption>
+</image>
+
+<image>
+  <filename>17.jpg</filename>
+  <caption><![CDATA[<i><font face="Book Antiqua" size="16">Cindy With Her Vocal Coach, Jan Smith, in Atlanta</font></i>]]></caption>
+</image>
+
+<image>
+  <filename>2.jpg</filename>
+  <caption><![CDATA[<i><font face="Book Antiqua" size="16">Cindy Opening For George Jones</font></i>]]></caption>
+</image>
+
+<image>
+  <filename>4.jpg</filename>
+  <caption><![CDATA[<i><font face="Book Antiqua" size="16">Cindy Opening For Mary Wilson and the Supremes</font></i>]]></caption>
+</image>
+
+<image>
+  <filename>20.jpg</filename>
+  <caption><![CDATA[<i><font face="Book Antiqua" size="16">Backstage With Ben And Matt KNIX 102.5 Phoenix</font></i>]]></caption>
+</image>
+
+<image>
+  <filename>21.jpg</filename>
+  <caption><![CDATA[<i><font face="Book Antiqua" size="16">Opening For Neal McCoy For The Second Time</font></i>]]></caption>
+</image>
+
+<image>
+  <filename>27.jpg</filename>
+  <caption><![CDATA[<i><font face="Book Antiqua" size="16">Cindy Headlining With Luke Bryan</font></i>]]></caption>
+</image>
+
+<image>
+  <filename>28.jpg</filename>
+  <caption><![CDATA[<i><font face="Book Antiqua" size="16">Cindy With Command Sargeant Major Jenkins - Fisher House Performance Hawaii</font></i>]]></caption>
+</image>
+
+<image>
+  <filename>31.jpg</filename>
+  <caption><![CDATA[<i><font face="Book Antiqua" size="16">Cindy Standage Band Fisher House Hawaii</font></i>]]></caption>
+</image>
+
+<image>
+  <filename>36.jpg</filename>
+  <caption><![CDATA[<i><font face="Book Antiqua" size="16">Cindy And Joe Nichols At The Grand Ole Opry</font></i>]]></caption>
+</image>
+
+<image>
+  <filename>37.jpg</filename>
+  <caption><![CDATA[<i><font face="Book Antiqua" size="16">Hal Ketchum and Cindy</font></i>]]></caption>
+</image>
+
+<image>
+  <filename>38.jpg</filename>
+  <caption><![CDATA[<i><font face="Book Antiqua" size="16">Cindy And Terri Clark In New Mexico</font></i>]]></caption>
+</image>
+
+<image>
+  <filename>41.jpg</filename>
+  <caption><![CDATA[<i><font face="Book Antiqua" size="16">Live With Sandy Moss KPPV Prescott, AZ</font></i>]]></caption>
+</image>
+
+<image>
+  <filename>43.jpg</filename>
+  <caption><![CDATA[<i><font face="Book Antiqua" size="16">Live Radio Show With Honey Harris Albuquerque, NM</font></i>]]></caption>
+</image>
+
+<image>
+  <filename>44.jpg</filename>
+  <caption><![CDATA[<i><font face="Book Antiqua" size="16">Live On The Stage</font></i>]]></caption>
+</image>
+
+<image>
+  <filename>62.jpg</filename>
+  <caption><![CDATA[<i><font face="Book Antiqua" size="16">CD Cover "Same Red Hair"</font></i>]]></caption>
+</image>
+
+<image>
+  <filename>61.jpg</filename>
+  <caption><![CDATA[<i><font face="Book Antiqua" size="16">Cindy And Marc Stowe, Producer Sony Studio Nashville</font></i>]]></caption>
+</image>
+
+<image>
+  <filename>65.jpg</filename>
+  <caption><![CDATA[<i><font face="Book Antiqua" size="16">Sony Studio Nashville CD Crew</font></i>]]></caption>
+</image>
+
+<image>
+  <filename>large4.jpg</filename>
+  <caption><![CDATA[<i><font face="Book Antiqua" size="16">Cindy And "Sweet Ed"Grand Ole Opry Press Room</font></i>]]></caption>
+</image>
+
+<image>
+  <filename>large7.jpg</filename>
+  <caption><![CDATA[<i><font face="Book Antiqua" size="16">Opening For Neal McCoy - Third Time</font></i>]]></caption>
+</image>
+
+<image>
+  <filename>large11.jpg</filename>
+  <caption><![CDATA[<i><font face="Book Antiqua" size="16"> Acoustic Set At Celebrity Theatre
+</font></i>]]></caption>
+</image>
+
+<image>
+  <filename>1.jpg</filename>
+  <caption><![CDATA[<i><font face="Book Antiqua" size="16">Cindy Live KIIM Country Music Festival</font></i>]]></caption>
+</image>
+
 </simpleviewergallery>
