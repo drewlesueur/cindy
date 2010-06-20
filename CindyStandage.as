@@ -793,16 +793,31 @@ var go_about = function(){
                             
 
 */
+
+
+
  var tours = _root.createEmptyMovieClip("tours",_root.getNextHighestDepth());
  tours._x = 700
  tours._y = 200
  
  var tours_index;
 
-
+var tourss = [];
+ var tours_ext = new LoadVars();
+ tours_ext.onLoad = function(success){
+    if (success) {
+      tourss = this['tours'];
+      tourss = tourss.split("\n----\n");
+    } else {
+      
+    }
+ }
+ var my_date = new Date();
+ var my_time = my_date.getTime();
+ tours_ext.load('tours.txt?time=' + my_time);
  
- 
- var tourss = [
+ /*
+ var tourss_2 = [
  
  
   "August 15, 2009\nOld Tucson Movie Studio with Darryl Worley\nTime – TBA\n\n" +
@@ -886,6 +901,8 @@ var go_about = function(){
 
 "Aug 3, 2007\nTim McGraw and Faith Hill\nJobing.com Arena\n"
 ]
+ */
+ 
  
  /*
  var tourss = [
@@ -919,9 +936,16 @@ var go_about = function(){
  ]
  */
  
- 
-var go_tours = function(){
-
+var go_tours;
+go_tours = function(){
+  if (tourss.length == 0) {
+    setTimeout(go_tours, 1000);
+    return false;
+    
+  } else {
+    
+  }
+  
   var can_click_next = false;
   var can_click_prev = false;
 		if (tours_index < tourss.length - 1)

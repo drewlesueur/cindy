@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+<style>
+
+.left {
+   position: absolute;
+   
+   font-family: Book Antiqua;
+   font-size: 16px;
+     float: left;
+  border: 1px solid black;
+  width: 45%;
+  position: relative;
+  height: 300px;
+}
+
+.right {
+  float: left;
+  margin-left: 5%;
+  width: 40%;
+  border: 1px solid black;
+  height: 300px;
+  overflow: scroll;
+}
+
+body {
+  font-family: Georgia;
+}
+
+#save {
+  float: left;
+  clear: both;
+  font-size: 20px;
+}
+
+#out {
+  float: left;
+  clear: both;
+}
+
+</style>
+<script src="jquery.js"></script>
+<script src="jquery.livequery.js"></script>
+<script>
+$(document).ready(function(){
+  $.get('tours.txt', function(data){
+      data=data.substring(6); //getting rid of "tours="
+      data = decodeURIComponent(data);
+      $('#tours').val(data)
+  })
+  
+  $('#save').click(function(){
+      $(this).val("Saving...")
+      var button = this
+      $.post('tours-save.php', {
+        pw: 'bean',
+        data: 'tours=' + encodeURIComponent($('#tours').val()) //double encodeuricomponent
+      }, function(data){
+          if (data == "true") {
+             $(button).val("Save")
+          }
+      })
+  })
+
+})
+</script>
+<body>
+<div>
+<h1>Cindy Standage Tours Page</h1>
+
+<h3>Write tours here</h3>
+<textarea class="left" id="tours"></textarea>
+
+
+<div class="right">
+<h2>Example</h2>
+
+
+<pre>
+
+Live Radio show KQNA with Ken Byers
+Prescot, Arizona
+
+
+June 26, 2010
+Private Party
+Louisville, Kentucky
+----
+May 5, 2010
+Private Party
+Mesa, AZ
+
+</pre>
+
+
+</div>
+<input id="save" type="button" value="Save">
+<textarea id="out"></textarea>
+</body>
+</html>
