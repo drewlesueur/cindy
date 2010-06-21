@@ -264,7 +264,7 @@ ns.setBufferTime(15);
 		bloggerplace.tours = [10,750];
 		bloggerplace.press = [50,750];
 		bloggerplace.about = [50,750];
-		bloggerplace.photos = [50,750];
+		bloggerplace.photos = [50,1250];
 		bloggerplace.contact = [50,750];
 		
 				var myspaceplace = {}
@@ -273,7 +273,7 @@ ns.setBufferTime(15);
 		myspaceplace.tours = [122,750];
 		myspaceplace.press = [172,750];
 		myspaceplace.about = [172,750];
-		myspaceplace.photos = [172,750];
+		myspaceplace.photos = [172,1250];
 		myspaceplace.contact = [172,750];
 		
 
@@ -283,7 +283,7 @@ ns.setBufferTime(15);
 		fisherplace.tours = [390,729];
 		fisherplace.press = [320,729];
 		fisherplace.about = [320,729];
-		fisherplace.photos = [320,729];
+		fisherplace.photos = [320,1229];
 		fisherplace.contact = [320,729];
 		
 		
@@ -504,9 +504,102 @@ blogger._x = 50;
 		
 		
 		
+		var home_clip = _root.createEmptyMovieClip("home_clip",_root.getNextHighestDepth());
+     var home_text = "";
+     var home_text_x = 200;
+     var home_text_y = 300;
+     var home_text_w = 300;
+     var home_text_h = 200;
+     var home_ext = new LoadVars();
+     home_ext.onLoad = function(success){
+        if (success) {
+          home_text = this['home'];
+          home_text_x = this['x'];
+          home_text_y = this['y'];
+          home_text_w = this['w'];
+          home_text_h = this['h'];
+        } 
+     }
+    var my_date = new Date();
+    var my_time = my_date.getTime();
+    
+    home_ext.load('home.txt?time=' + my_time);
+    
+
 		
-		var go_home = function()
+    var go_home
+		go_home = function()
 		{
+        if (page != "home") {
+            return;
+        }
+        if (home_text == "") {
+          setTimeout(go_home, 1000);
+          return false;
+    
+        }
+        
+         var ds_nav = new DropShadowFilter();
+        ds_nav.blurX= 8;
+        ds_nav.blurY= 8;
+        ds_nav.distance = 3;
+        
+        
+        
+        
+        
+    var tours_txt = home_clip.createTextField("tours_txt",home_clip.getNextHighestDepth(),home_text_x,home_text_y,home_text_w,home_text_h);
+    tours_txt.html = true; //comment this html try
+		
+		
+		var tours_css:TextField.StyleSheet = new TextField.StyleSheet();
+    tours_css.onLoad = function(success:Boolean) {
+    if (success) {
+        tours_txt.styleSheet = tours_css;
+        //tours_txt.htmlText = newsText;
+    }
+    };
+    //tours_css.load("styles.css");
+		
+		
+		var tours_fmt = new TextFormat("eaves"); //change to eaves
+		//tours_fmt.color=0xffffff;
+		tours_fmt.align = "left";
+		
+		tours_txt.wordWrap = true
+		
+		var texto = home_text
+		tours_txt.htmlText =  texto
+		
+		//header_txt.autoSize = true;
+			
+		tours_txt.setTextFormat(tours_fmt);
+    
+
+		//only when you are using font with swfmill
+		tours_txt.embedFonts = true;  //uncomment this html try
+    tours_txt.filters = [ds_nav,ds_nav]    
+        
+        /*
+        	var music_fmt = new TextFormat("eaves",23); //change to eaves
+      music_fmt.color=0xffffff;
+      music_fmt.align = "left";
+        
+      var home_text_field = home_clip.createTextField("home_text_field",home_clip.getNextHighestDepth(),home_text_x,home_text_y,home_text_w,home_text_h);
+      home_clip.home_text_field.wordWrap = true
+      home_text_field.html = true;
+      home_text_field.htmlText =  home_text
+      
+      home_text_field.setTextFormat(music_fmt);
+      home_text_field.embedFonts = true;  //uncomment this html try
+      home_text_field.filters = [ds_nav,ds_nav]
+      */
+      
+      
+      
+      
+        
+        
       //the_ns.play("music/1.flv");
 		}
 		
@@ -812,8 +905,7 @@ var tourss = [];
       
     }
  }
- var my_date = new Date();
- var my_time = my_date.getTime();
+ 
  tours_ext.load('tours.txt?time=' + my_time);
  
  /*
@@ -1883,6 +1975,10 @@ var go_music = function()
 				{
             contact.unloadMovie(contact);
 				}
+				if (page == "home" && this.navtext.text.toLowerCase() != "home")
+				{
+            home_clip.unloadMovie(home_clip);
+				}
 				
 				if (page == "music" && this.navtext.text.toLowerCase() != "music")
 				{
@@ -1947,6 +2043,7 @@ var go_music = function()
         {
           
           if (prevpage != "home"){
+            go_home()
             //getURL("#home");
             //getURL("home_.php","iframey");
             //ExternalInterface.call("changeFrame","home_.php");

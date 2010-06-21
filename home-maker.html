@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+<style>
+
+.left {
+   position: absolute;
+   
+   font-family: Book Antiqua;
+   font-size: 16px;
+     float: left;
+  border: 1px solid black;
+  width: 45%;
+  position: relative;
+  height: 300px;
+}
+
+.right {
+  float: left;
+  margin-left: 5%;
+  width: 40%;
+  border: 1px solid black;
+  height: 300px;
+  overflow: scroll;
+}
+
+body {
+  font-family: Georgia;
+}
+
+#save {
+  float: left;
+  clear: both;
+  font-size: 20px;
+}
+
+#out {
+  float: left;
+  clear: both;
+}
+
+</style>
+<script src="jquery.js"></script>
+<script src="jquery.livequery.js"></script>
+<script>
+$(document).ready(function(){
+  $.get('home.txt', function(data){
+      
+      var qs = {}
+      data.replace(
+        new RegExp("([^?=&]+)(=([^&]*))?", "g"),
+        function($0, $1, $2, $3) { qs[$1] = decodeURIComponent($3); }
+      );
+      
+      
+      $('#home').val(qs['home'])
+      $('#x').val(qs['x'])
+      $('#y').val(qs['y'])
+      $('#w').val(qs['w'])
+      $('#h').val(qs['h'])
+      
+  })
+  
+  $('#save').click(function(){
+      $(this).val("Saving...")
+      var button = this
+      $.post('home-save.php', {
+        pw: 'bean',
+        data: 'home=' + encodeURIComponent($('#home').val()) + "&x=" + $('#x').val() + "&y=" + $('#y').val() + "&w=" + $('#w').val() + "&h=" + $("#h").val() 
+      }, function(data){
+          if (data == "true") {
+             $(button).val("Save")
+          }
+      })
+  })
+
+})
+</script>
+<body>
+<div>
+<h1>Cindy Standage Home Page</h1>
+
+<h3>Write Home text here</h3>
+<textarea class="left" id="home"></textarea>
+
+width <input id="w" /><br />
+height <input id="h" /><br />
+x <input id="x" /><br />
+y <input id="y" /><br />
+
+<div class="right">
+<h2>Example</h2>
+
+
+<pre>
+
+Roots Airplay
+1. Cindy Standage
+
+</pre>
+
+
+</div>
+<input id="save" type="button" value="Save">
+<textarea id="out"></textarea>
+</body>
+</html>

@@ -1,9 +1,9 @@
 <!DOCTYPE HTML>
 <html>
-<head>
-<head>
-<title>Cindy Standage</title>
 
+<head>
+<script src="jquery.js"></script>
+<title>Cindy Standage</title>
 </head>
 <style>
 *
@@ -157,11 +157,27 @@ var remember = false;
 
 <script type="text/javascript">
 var file = remember == true ? "CindyStandage.swf?r=1" : "CindyStandage.swf";
-   var so = new SWFObject(file, "mymovie", "1250", "800", "8", "#000000");
+   var so = new SWFObject(file, "mymovie", "1250", "800", "8", "#000000", "", 'wmode="transparent"');
 so.salign = "tl";
 so.align = "t";
 so.sale = "scale";
    so.write("flashcontent");
+
+/*
+$(document).ready(function(){
+    $('#flashcontent').append($('<div>Roots airplay</div>').css({
+        'z-index': 1000000000,
+        'position': 'absolute',
+        'width' : '300px',
+        'height' : '200px',
+        'top' : '0',
+        'left' : '0',
+        'background-color' : 'yellow'
+    }))
+    
+})
+*/
+
 </script>
 
 
@@ -179,11 +195,17 @@ document.getElementById("mymovie").style.height = "640px"
 <input id="yui-history-field" type="hidden">
 
 <!-- Dependencies -->
-<script src="http://yui.yahooapis.com/2.6.0/build/yahoo/yahoo-min.js"></script>
-<script src="http://yui.yahooapis.com/2.6.0/build/event/event-min.js"></script>
+<!--<script src="http://yui.yahooapis.com/2.6.0/build/yahoo/yahoo-min.js"></script>
+<script src="http://yui.yahooapis.com/2.6.0/build/event/event-min.js"></script>-->
+
+<script src="yahoo-min.js"></script>
+<script src="event-min.js"></script>
+
+
 
 <!-- Browser History Manager source file -->
-<script src="http://yui.yahooapis.com/2.6.0/build/history/history-min.js"></script>
+<!--<script src="http://yui.yahooapis.com/2.6.0/build/history/history-min.js"></script>-->
+<script src="history-min.js"></script>
 
 <script>
 var myModuleBookmarkedState = YAHOO.util.History.getBookmarkedState("nav");

@@ -237,7 +237,7 @@ var ds_ = new DropShadowFilter();
 		
 				var bloggerplace = {}
 		bloggerplace.home = [50,750];
-		bloggerplace.music = [50,750];
+		bloggerplace.music = [50,1250];
 		bloggerplace.tours = [10,750];
 		bloggerplace.press = [50,750];
 		bloggerplace.about = [50,750];
@@ -246,7 +246,7 @@ var ds_ = new DropShadowFilter();
 		
 				var myspaceplace = {}
 		myspaceplace.home = [172,750];
-		myspaceplace.music = [172,750];
+		myspaceplace.music = [172,1250];
 		myspaceplace.tours = [122,750];
 		myspaceplace.press = [172,750];
 		myspaceplace.about = [172,750];
@@ -256,7 +256,7 @@ var ds_ = new DropShadowFilter();
 
 				var fisherplace = {}
 		fisherplace.home = [320,750];
-		fisherplace.music = [320,750];
+		fisherplace.music = [320,1250];
 		fisherplace.tours = [390,750];
 		fisherplace.press = [320,750];
 		fisherplace.about = [320,750];
